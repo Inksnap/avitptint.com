@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+Allow: /assets/images/
+
+# Disallow non-image assets
+Disallow: /assets/styles.css
+Disallow: /assets/scripts.js
+
+# Sitemaps
+Sitemap: https://avitprint.com/sitemap.xml
+Sitemap: https://avitprint.com/image-sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 1

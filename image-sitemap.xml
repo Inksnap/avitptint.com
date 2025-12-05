@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+    
+    <!-- Homepage Images -->
+    <url>
+        <loc>https://avitprint.com/</loc>
+        <image:image>
+            <image:loc>https://avitprint.com/assets/images/products/business-card.jpg</image:loc>
+            <image:title>Premium Business Cards Printing Lagos Nigeria</image:title>
+            <image:caption>Custom printed business cards with matte and glossy finishes</image:caption>
+        </image:image>
+        <image:image>
+            <image:loc>https://avitprint.com/assets/images/products/flyer-printing-in-lagos.jpg</image:loc>
+            <image:title>Custom Flyer Printing Services Lagos</image:title>
+            <image:caption>High-quality A5 and A4 flyer printing for marketing campaigns</image:caption>
+        </image:image>
+        <image:image>
+            <image:loc>https://avitprint.com/assets/images/products/stickers.jpg</image:loc>
+            <image:title>Custom Stickers Printing Die-Cut Waterproof</image:title>
+            <image:caption>Durable waterproof stickers for branding and promotions</image:caption>
+        </image:image>
+    </url>
+    
+    <!-- Product Detail Pages -->
+    <url>
+        <loc>https://avitprint.com/product-detail-business-cards.html</loc>
+        <image:image>
+            <image:loc>https://avitprint.com/assets/images/products/business-card.jpg</image:loc>
+            <image:title>Premium Business Cards with Matte and Glossy Finishes</image:title>
+            <image:caption>Custom printed business cards Lagos Nigeria - 400gsm premium cardstock</image:caption>
+        </image:image>
+        <image:image>
+            <image:loc>https://avitprint.com/assets/images/products/business-card-printing.jpg</image:loc>
+            <image:title>Matte Finish Business Cards</image:title>
+            <image:caption>Professional matte finish business cards for corporate branding</image:caption>
+        </image:image>
+        <image:image>
+            <image:loc>https://avitprint.com/assets/images/products/luxury-cards.jpg</image:loc>
+            <image:title>Premium Luxury Business Cards with Spot UV</image:title>
+            <image:caption>High-end business cards with spot UV coating and foil stamping</image:caption>
+        </image:image>
+    </url>
+    
+    <url>
+        <loc>https://avitprint.com/product-detail-flyers.html</loc>
+        <image:image>
+            <image:loc>https://avitprint.com/assets/images/products/flyer-printing-in-lagos.jpg</image:loc>
+            <image:title>Custom Printed Flyers in Various Colors</image:title>
+            <image:caption>High-impact A5 and A4 flyers with premium 150gsm art paper</image:caption>
+        </image:image>
+        <image:image>
+            <image:loc>https://avitprint.com/assets/images/products/flyer-printing.jpg</image:loc>
+            <image:title>Colorful Flyer Designs</image:title>
+            <image:caption>Vibrant full-color flyer printing for product launches and events</image:caption>
+        </image:image>
+        <image:image>
+            <image:loc>https://avitprint.com/assets/images/products/flyerprinting.jpg</image:loc>
+            <image:title>Flyer Close-Up Showing Print Quality</image:title>
+            <image:caption>Premium print quality with 300 DPI resolution on art paper</image:caption>
+        </image:image>
+        <image:image>
+            <image:loc>https://avitprint.com/assets/images/products/flyer-printing-near-me.jpg</image:loc>
+            <image:title>Flyers in Use for Marketing</image:title>
+            <image:caption>Marketing flyers distributed for promotional campaigns</image:caption>
+        </image:image>
+    </url>
+    
+    <url>
+        <loc>https://avitprint.com/product-detail-brochures.html</loc>
+        <image:image>
+            <image:loc>https://avitprint.com/assets/images/products/brochures.jpg</image:loc>
+            <image:title>Custom Brochures Tri-Fold Bi-Fold Layouts</image:title>
+            <image:caption>Professional brochures for detailed product and service information</image:caption>
+        </image:image>
+    </url>
+    
+    <url>
+        <loc>https://avitprint.com/product-detail-t-shirts.html</loc>
+        <image:image>
+            <image:loc>https://avitprint.com/assets/images/products/tshirt-printing-in-lagos.jpeg</image:loc>
+            <image:title>Custom T-Shirt Printing Full Color on Cotton</image:title>
+            <image:caption>High-quality t-shirt printing with vibrant full-color designs</image:caption>
+        </image:image>
+    </url>
+    
+    <url>
+        <loc>https://avitprint.com/product-detail-mugs.html</loc>
+        <image:image>
+            <image:loc>https://avitprint.com/assets/images/products/mug-printing.jpg</image:loc>
+            <image:title>Custom Mug Printing Dishwasher Safe Ceramic</image:title>
+            <image:caption>Dishwasher-safe ceramic mugs with vibrant heat transfer printing</image:caption>
+        </image:image>
+    </url>
+    
+    <url>
+        <loc>https://avitprint.com/product-detail-roll-up-banners.html</loc>
+        <image:image>
+            <image:loc>https://avitprint.com/assets/images/products/Roll-Up Banner.jpg</image:loc>
+            <image:title>Roll-Up Banners with Aluminum Stand Tear-Resistant</image:title>
+            <image:caption>Professional roll-up banners with portable aluminum stand</image:caption>
+        </image:image>
+    </url>
+    
+    <url>
+        <loc>https://avitprint.com/product-detail-courier-bags.html</loc>
+        <image:image>
+            <image:loc>https://avitprint.com/assets/images/products/courier-bags.jpg</image:loc>
+            <image:title>Courier Bags Marketing Tamper Proof Poly Mailers</image:title>
+            <image:caption>Branded courier bags and tamper-proof poly mailers for shipping</image:caption>
+        </image:image>
+        <image:image>
+            <image:loc>https://avitprint.com/assets/images/products/courier-bags-in-lagos.jpg</image:loc>
+            <image:title>Courier Bags Printing Services Lagos</image:title>
+            <image:caption>Custom printed courier bags available in Lagos Nigeria</image:caption>
+        </image:image>
+    </url>
+    
+    <url>
+        <loc>https://avitprint.com/product-detail-wedding-invitations.html</loc>
+        <image:image>
+            <image:loc>https://avitprint.com/assets/images/products/wedding-invitation-card.jpg</image:loc>
+            <image:title>Wedding Invitations Elegant Invites with RSVP Cards</image:title>
+            <image:caption>Beautiful wedding invitation cards with matching RSVP cards</image:caption>
+        </image:image>
+    </url>
+    
+    <url>
+        <loc>https://avitprint.com/product-detail-wedding-banners.html</loc>
+        <image:image>
+            <image:loc>https://avitprint.com/assets/images/products/weddingRedcarpet design.jpg</image:loc>
+            <image:title>Wedding Banners Premium Full Color Print</image:title>
+            <image:caption>Elegant wedding banners with premium full-color printing</image:caption>
+        </image:image>
+    </url>
+    
+    <url>
+        <loc>https://avitprint.com/product-detail-vehicle-branding.html</loc>
+        <image:image>
+            <image:loc>https://avitprint.com/assets/images/products/vehicle-branding.jpg</image:loc>
+            <image:title>Vehicle Branding Full Color Print Car Wraps</image:title>
+            <image:caption>Professional vehicle branding and car wrap services</image:caption>
+        </image:image>
+    </url>
+    
+    <url>
+        <loc>https://avitprint.com/product-detail-branded-caps.html</loc>
+        <image:image>
+            <image:loc>https://avitprint.com/assets/images/products/Branded-Cap.jpg</image:loc>
+            <image:title>Branded Caps Embroidered Caps Various Colors</image:title>
+            <image:caption>Custom embroidered caps available in various colors</image:caption>
+        </image:image>
+    </url>
+    
+    <url>
+        <loc>https://avitprint.com/product-detail-burial-program.html</loc>
+        <image:image>
+            <image:loc>https://avitprint.com/assets/images/products/burial-program.jpg</image:loc>
+            <image:title>Burial Program Full Color Printing</image:title>
+            <image:caption>Memorial burial program printing with full-color design</image:caption>
+        </image:image>
+    </url>
+    
+    <url>
+        <loc>https://avitprint.com/product-detail-presentation-folders.html</loc>
+        <image:image>
+            <image:loc>https://avitprint.com/assets/images/products/Presentation-Folder.jpg</image:loc>
+            <image:title>Presentation Folders Professional with Business Card Slots</image:title>
+            <image:caption>Professional presentation folders with integrated business card slots</image:caption>
+        </image:image>
+    </url>
+    
+    <url>
+        <loc>https://avitprint.com/product-detail-employee-id-cards.html</loc>
+        <image:image>
+            <image:loc>https://avitprint.com/assets/images/products/id-card-printing.jpg</image:loc>
+            <image:title>Employee ID Cards PVC Cards with Lanyards</image:title>
+            <image:caption>Professional PVC employee ID cards with matching lanyards</image:caption>
+        </image:image>
+    </url>
+    
+    <url>
+        <loc>https://avitprint.com/product-detail-custom-lanyards.html</loc>
+        <image:image>
+            <image:loc>https://avitprint.com/assets/images/products/lanyard-printing.jpg</image:loc>
+            <image:title>Custom Lanyards Printed with Safety Clips</image:title>
+            <image:caption>Custom printed lanyards with safety clips included</image:caption>
+        </image:image>
+    </url>
+    
+    <url>
+        <loc>https://avitprint.com/product-detail-custom-keychains.html</loc>
+        <image:image>
+            <image:loc>https://avitprint.com/assets/images/products/Keychain.jpg</image:loc>
+            <image:title>Custom Keychains Acrylic Metal Rubber Options</image:title>
+            <image:caption>Custom keychains available in acrylic, metal, and rubber materials</image:caption>
+        </image:image>
+    </url>
+    
+    <url>
+        <loc>https://avitprint.com/product-detail-backdrops.html</loc>
+        <image:image>
+            <image:loc>https://avitprint.com/assets/images/products/backdrop-.jpg</image:loc>
+            <image:title>Custom Backdrops for Events and Promotions</image:title>
+            <image:caption>Professional event backdrops for photography and branding</image:caption>
+        </image:image>
+    </url>
+    
+    <url>
+        <loc>https://avitprint.com/product-detail-invitation-cards.html</loc>
+        <image:image>
+            <image:loc>https://avitprint.com/assets/images/products/invitation-card.jpg</image:loc>
+            <image:title>Invitation Cards Elegant Invites with RSVP</image:title>
+            <image:caption>Elegant invitation cards with matching RSVP cards</image:caption>
+        </image:image>
+    </url>
+    
+</urlset>
