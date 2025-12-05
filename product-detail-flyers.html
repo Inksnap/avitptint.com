@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Flyers | Avitprint</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/styles.css">
+</head>
+
+<body class="product-detail">
+    <div class="page-shell">
+        <header class="site-header">
+            <div class="header-strip">
+                <strong>PRINT SHOP HQ</strong>
+                <span>Need help? <a href="mailto:support@avitprint.com">support@avitprint.com</a></span>
+            </div>
+            <div class="header-main">
+                <div class="brand-row">
+                    <a class="logo" href="index.html">Avitprint</a>
+                    <div class="header-actions">
+                        <a href="products.html">All products</a>
+                        <a href="about.html">About</a>
+                        <a href="index.html#workflow">How we work</a>
+                        <a href="mailto:sales@avitprint.com">Talk to sales</a>
+                    </div>
+                </div>
+                <nav class="breadcrumbs" aria-label="Breadcrumb">
+                    <a href="index.html">Home</a>
+                    <span>&rsaquo;</span>
+                    <a href="products.html">Marketing prints</a>
+                    <span>&rsaquo;</span>
+                    <span aria-current="page">Custom flyers</span>
+                </nav>
+            </div>
+        </header>
+
+        <main>
+            <section class="hero" aria-labelledby="product-title">
+                <div class="media-stack">
+                    <div class="media-card">
+                        <img src="assets/images/products/flyer-printing-in-lagos.jpg" alt="Custom printed flyers in various colors">
+                    </div>
+                    <div class="media-thumbs" aria-label="Flyer thumbnails">
+                        <img src="assets/images/products/flyer-printing-in-lagos.jpg" alt="A5 flyers stack" class="media-thumb">
+                        <img src="assets/images/products/flyer-printing.jpg" alt="Colorful flyer designs" class="media-thumb">
+                        <img src="assets/images/products/flyerprinting.jpg" alt="Flyer close-up showing print quality" class="media-thumb">
+                        <img src="assets/images/products/flyer-printing-near-me.jpg" alt="Flyers in use for marketing" class="media-thumb">
+                    </div>
+                    <div class="swatch-row" aria-label="Popular color swatches">
+                        <span class="swatch"></span>
+                        <span class="swatch"></span>
+                        <span class="swatch"></span>
+                        <span class="swatch"></span>
+                    </div>
+                </div>
+                <div class="hero-content">
+                    <p class="eyebrow">Marketing essentials</p>
+                    <h1 id="product-title">Custom Flyers</h1>
+                    <p>High-impact flyers that grab attention and drive action. Perfect for product launches, event promotions, restaurant menus, real estate listings, and neighborhood campaigns. Available in A5 and A4 sizes with premium paper stock and vibrant full-color printing.</p>
+                    <ul class="selling-points">
+                        <li><span>&#10003;</span>150gsm premium art paper with optional lamination</li>
+                        <li><span>&#10003;</span>A5 (148 x 210mm) and A4 (210 x 297mm) sizes</li>
+                        <li><span>&#10003;</span>Single or double-sided printing available</li>
+                        <li><span>&#10003;</span>Ready in 48-72hrs, rush service available</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="section" id="quote">
+                <h2>Get a custom quote</h2>
+                <p>Fill out the form below and our team will send you a detailed quote with pricing, timelines, and recommendations within 3 business hours.</p>
+                <div class="order-panel" style="max-width: 600px; margin: 0 auto;">
+                    <form action="mailto:sales@avitprint.com" method="post" enctype="text/plain" onsubmit="return handleQuoteSubmit(event)">
+                        <div style="display: grid; gap: 18px;">
+                            <div>
+                                <label for="quote-name" style="display: block; margin-bottom: 8px; font-weight: 600; font-size: 14px;">Full Name *</label>
+                                <input type="text" id="quote-name" name="name" required style="width: 100%; padding: 12px 16px; border-radius: 12px; border: 1px solid #e8e8f5; font-size: 14px; font-family: inherit;">
+                            </div>
+                            <div>
+                                <label for="quote-email" style="display: block; margin-bottom: 8px; font-weight: 600; font-size: 14px;">Email Address *</label>
+                                <input type="email" id="quote-email" name="email" required style="width: 100%; padding: 12px 16px; border-radius: 12px; border: 1px solid #e8e8f5; font-size: 14px; font-family: inherit;">
+                            </div>
+                            <div>
+                                <label for="quote-phone" style="display: block; margin-bottom: 8px; font-weight: 600; font-size: 14px;">Phone Number *</label>
+                                <input type="tel" id="quote-phone" name="phone" required style="width: 100%; padding: 12px 16px; border-radius: 12px; border: 1px solid #e8e8f5; font-size: 14px; font-family: inherit;">
+                            </div>
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                                <div>
+                                    <label for="quote-quantity" style="display: block; margin-bottom: 8px; font-weight: 600; font-size: 14px;">Quantity *</label>
+                                    <select id="quote-quantity" name="quantity" required style="width: 100%; padding: 12px 16px; border-radius: 12px; border: 1px solid #e8e8f5; font-size: 14px; font-family: inherit; background: #fff;">
+                                        <option value="">Select quantity</option>
+                                        <option value="100">100 flyers</option>
+                                        <option value="250">250 flyers</option>
+                                        <option value="500">500 flyers</option>
+                                        <option value="1000">1,000 flyers</option>
+                                        <option value="2000">2,000+ flyers</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="quote-size" style="display: block; margin-bottom: 8px; font-weight: 600; font-size: 14px;">Size *</label>
+                                    <select id="quote-size" name="size" required style="width: 100%; padding: 12px 16px; border-radius: 12px; border: 1px solid #e8e8f5; font-size: 14px; font-family: inherit; background: #fff;">
+                                        <option value="">Select size</option>
+                                        <option value="A5">A5 (148 x 210mm)</option>
+                                        <option value="A4">A4 (210 x 297mm)</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div>
+                                <label for="quote-sides" style="display: block; margin-bottom: 8px; font-weight: 600; font-size: 14px;">Printing *</label>
+                                <select id="quote-sides" name="sides" required style="width: 100%; padding: 12px 16px; border-radius: 12px; border: 1px solid #e8e8f5; font-size: 14px; font-family: inherit; background: #fff;">
+                                    <option value="">Select option</option>
+                                    <option value="single">Single-sided</option>
+                                    <option value="double">Double-sided</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="quote-message" style="display: block; margin-bottom: 8px; font-weight: 600; font-size: 14px;">Additional Details</label>
+                                <textarea id="quote-message" name="message" rows="4" placeholder="Tell us about your project, design requirements, delivery location, or any special requests..." style="width: 100%; padding: 12px 16px; border-radius: 12px; border: 1px solid #e8e8f5; font-size: 14px; font-family: inherit; resize: vertical;"></textarea>
+                            </div>
+                            <div>
+                                <label for="quote-design" style="display: block; margin-bottom: 8px; font-weight: 600; font-size: 14px;">Upload Design Files</label>
+                                <input type="file" id="quote-design" name="design" accept=".pdf,.ai,.psd,.jpg,.jpeg,.png,.eps,.indd" multiple style="width: 100%; padding: 12px 16px; border-radius: 12px; border: 1px solid #e8e8f5; font-size: 14px; font-family: inherit; background: #fff; cursor: pointer;">
+                                <p style="margin: 8px 0 0; font-size: 12px; color: #6b7280;">
+                                    Accepted formats: PDF, AI, PSD, JPG, PNG, EPS, INDD. You can select multiple files. Please attach them in your email client when the email opens.
+                                </p>
+                            </div>
+                            <button type="submit" class="btn-primary" style="width: 100%; padding: 14px 22px; border-radius: 12px; font-size: 15px; font-weight: 600; cursor: pointer; border: none; background: #6c5ce7; color: #fff; box-shadow: 0 14px 32px rgba(108, 92, 231, 0.35);">
+                                Request Quote
+                            </button>
+                            <p style="margin: 0; font-size: 12px; color: #6b7280; text-align: center;">
+                                We'll respond within 3 business hours with a detailed quote.
+                            </p>
+                        </div>
+                    </form>
+                </div>
+            </section>
+
+            <section class="section" id="specs">
+                <h2>Specifications</h2>
+                <div class="feature-grid">
+                    <article class="spec-card">
+                        <h3>Paper stock</h3>
+                        <p>150gsm premium art paper (standard). 200gsm card stock available for premium feel (+30% cost).</p>
+                    </article>
+                    <article class="spec-card">
+                        <h3>Finishing options</h3>
+                        <p>Standard matte finish included. Glossy lamination (+&#8358;2,500 per 100), spot UV coating, and die-cutting available.</p>
+                    </article>
+                    <article class="spec-card">
+                        <h3>Print quality</h3>
+                        <p>Full-color CMYK printing with 300 DPI resolution. Pantone spot colors available for brand matching.</p>
+                    </article>
+                    <article class="spec-card">
+                        <h3>File requirements</h3>
+                        <p>PDF, AI, or PSD files. 3mm bleed required. Minimum 300 DPI resolution. CMYK color mode.</p>
+                    </article>
+                </div>
+            </section>
+
+            <section class="section" id="related-products">
+                <h2>Other products you might like</h2>
+                <div class="feature-grid">
+                    <article class="feature-card">
+                        <div class="related-product-image">
+                            <img src="assets/images/products/business-card.jpg" alt="Business cards">
+                        </div>
+                        <h3>Business Cards</h3>
+                        <p>Pair your flyers with premium business cards for complete marketing packages.</p>
+                        <a href="business-cards.html">View business cards &rarr;</a>
+                    </article>
+                    <article class="feature-card">
+                        <div class="related-product-image">
+                            <img src="assets/images/products/brochures.jpg" alt="Brochures">
+                        </div>
+                        <h3>Brochures</h3>
+                        <p>Upgrade to tri-fold or bi-fold brochures for more detailed product information.</p>
+                        <a href="products.html">Browse brochures &rarr;</a>
+                    </article>
+                    <article class="feature-card">
+                        <div class="related-product-image">
+                            <img src="assets/images/products/stickers.jpg" alt="Custom stickers">
+                        </div>
+                        <h3>Custom Stickers</h3>
+                        <p>Add durable waterproof stickers to complement your flyer campaigns.</p>
+                        <a href="products.html">Browse stickers &rarr;</a>
+                    </article>
+                    <article class="feature-card">
+                        <div class="related-product-image">
+                            <img src="assets/images/products/postcards.jpg" alt="Postcards">
+                        </div>
+                        <h3>Marketing Postcards</h3>
+                        <p>Eye-catching postcards that work alongside flyers for comprehensive campaigns.</p>
+                        <a href="products.html">See postcards &rarr;</a>
+                    </article>
+                    <article class="feature-card">
+                        <div class="related-product-image">
+                            <img src="assets/images/products/letterheads.jpg" alt="Letterheads">
+                        </div>
+                        <h3>Letterheads</h3>
+                        <p>Professional letterheads that match your flyer design for brand consistency.</p>
+                        <a href="products.html">View letterheads &rarr;</a>
+                    </article>
+                    <article class="feature-card">
+                        <div class="related-product-image">
+                            <img src="assets/images/products/1.jpeg" alt="Door hangers">
+                        </div>
+                        <h3>Door Hangers</h3>
+                        <p>Custom door hangers that pair perfectly with flyer distribution campaigns.</p>
+                        <a href="product-detail.html">View door hangers &rarr;</a>
+                    </article>
+                </div>
+            </section>
+
+            <section class="section" id="faqs">
+                <h2>Frequently asked</h2>
+                <div class="feature-grid">
+                    <article class="faq-item">
+                        <h3>Can you help design the flyers?</h3>
+                        <p>Yes. Our in-house designers can create concepts from brief or polish your existing layout. Design starts from &#8358;15,000.</p>
+                    </article>
+                    <article class="faq-item">
+                        <h3>What's the difference between A5 and A4?</h3>
+                        <p>A5 (148 x 210mm) is half the size of A4 (210 x 297mm). A5 is perfect for handouts and inserts, while A4 offers more space for detailed information.</p>
+                    </article>
+                    <article class="faq-item">
+                        <h3>Do you print variable data?</h3>
+                        <p>We support unique codes, names, or addresses. Send an Excel sheet and we will personalise each flyer at scale.</p>
+                    </article>
+                    <article class="faq-item">
+                        <h3>Where do you deliver?</h3>
+                        <p>Nationwide delivery via courier partners. Lagos pickup is free. We can also coordinate bulk distribution services.</p>
+                    </article>
+                    <article class="faq-item">
+                        <h3>Can I see a proof before printing?</h3>
+                        <p>Yes. We provide digital proofs for approval before production. Physical samples available for large orders.</p>
+                    </article>
+                    <article class="faq-item">
+                        <h3>What about weather resistance?</h3>
+                        <p>Standard flyers are for indoor use. Laminated flyers withstand light moisture. For outdoor use, we recommend our waterproof PVC option.</p>
+                    </article>
+                </div>
+            </section>
+
+            <section class="section" id="cta">
+                <div class="cta-banner">
+                    <h2>Ready to print flyers that convert?</h2>
+                    <p>Share your artwork or campaign goals and our team will send pricing, timelines, and print recommendations within 3 business hours.</p>
+                    <a href="mailto:sales@avitprint.com">Start your order</a>
+                </div>
+            </section>
+        </main>
+
+        <footer class="site-footer">
+            <div class="footer-brand">Avitprint</div>
+            <p>All-in-one print partner for marketing teams, hospitality brands, and fast growing startups.</p>
+            <ul class="footer-nav">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="product-detail-flyers.html" aria-current="page">Flyers</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="index.html#resources">Resources</a></li>
+                <li><a href="index.html#workflow">FAQs</a></li>
+            </ul>
+            <div class="footer-grid">
+                <div>
+                    <strong>Talk to us</strong>
+                    <a href="mailto:support@avitprint.com">support@avitprint.com</a>
+                    <a href="tel:+12894367868">+1 289 436 7868</a>
+                    <span>Lagos, Nigeria</span>
+                </div>
+                <div>
+                    <strong>Follow</strong>
+                    <div class="socials">
+                        <a href="https://facebook.com/avitprint" target="_blank" rel="noopener noreferrer">Fb</a>
+                        <a href="https://instagram.com/avitprint" target="_blank" rel="noopener noreferrer">Ig</a>
+                        <a href="https://twitter.com/avitprint" target="_blank" rel="noopener noreferrer">Tw</a>
+                        <a href="https://linkedin.com/company/avitprint" target="_blank" rel="noopener noreferrer">In</a>
+                    </div>
+                </div>
+            </div>
+            <p class="footer-note">&copy; 2024 - 2025 Avitprint. All rights reserved.</p>
+        </footer>
+    </div>
+    <script src="assets/scripts.js"></script>
+    <script>
+        function handleQuoteSubmit(event) {
+            event.preventDefault();
+            var form = event.target;
+            var name = document.getElementById('quote-name').value;
+            var email = document.getElementById('quote-email').value;
+            var phone = document.getElementById('quote-phone').value;
+            var quantity = document.getElementById('quote-quantity').value;
+            var size = document.getElementById('quote-size').value;
+            var sides = document.getElementById('quote-sides').value;
+            var message = document.getElementById('quote-message').value;
+            var designFiles = document.getElementById('quote-design').files;
+            
+            var subject = 'Flyer Quote Request - ' + quantity + ' ' + size + ' (' + sides + ')';
+            var body = 'Name: ' + name + '%0D%0A' +
+                      'Email: ' + email + '%0D%0A' +
+                      'Phone: ' + phone + '%0D%0A' +
+                      'Quantity: ' + quantity + ' flyers%0D%0A' +
+                      'Size: ' + size + '%0D%0A' +
+                      'Printing: ' + sides + '-sided%0D%0A';
+            
+            if (message) {
+                body += 'Additional Details: ' + encodeURIComponent(message) + '%0D%0A';
+            }
+            
+            if (designFiles.length > 0) {
+                body += '%0D%0A--- Design Files ---%0D%0A';
+                for (var i = 0; i < designFiles.length; i++) {
+                    body += 'File ' + (i + 1) + ': ' + designFiles[i].name + '%0D%0A';
+                }
+                body += '%0D%0ANote: Please attach the design files to this email before sending.%0D%0A';
+            }
+            
+            window.location.href = 'mailto:sales@avitprint.com?subject=' + encodeURIComponent(subject) + '&body=' + body;
+            return false;
+        }
+    </script>
+</body>
+
+</html>
+
