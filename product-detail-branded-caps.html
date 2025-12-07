@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="assets/images/logo/favicon.png">
     
     <!-- Primary Meta Tags -->
     <title>Branded Caps Printing | Custom Caps Lagos | Avitprint</title>
@@ -131,7 +132,7 @@
                 <h2>Get a custom quote</h2>
                 <p>Fill out the form below and our team will send you a detailed quote with pricing, timelines, and recommendations within 3 business hours.</p>
                 <div class="order-panel" style="max-width: 600px; margin: 0 auto;">
-                    <form action="mailto:sales@avitprint.com" method="post" enctype="text/plain" onsubmit="return handleQuoteSubmit(event)">
+                    <form onsubmit="return handleQuoteSubmit(event)">
                         <div style="display: grid; gap: 18px;">
                             <div>
                                 <label for="quote-name" style="display: block; margin-bottom: 8px; font-weight: 600; font-size: 14px;">Full Name *</label>
@@ -174,6 +175,10 @@
                             <div>
                                 <label for="quote-design" style="display: block; margin-bottom: 8px; font-weight: 600; font-size: 14px;">Upload Design Files</label>
                                 <input type="file" id="quote-design" name="design" accept=".pdf,.ai,.psd,.jpg,.jpeg,.png,.eps,.indd" multiple style="width: 100%; padding: 12px 16px; border-radius: 12px; border: 1px solid #e8e8f5; font-size: 14px; font-family: inherit; background: #fff; cursor: pointer;">
+                                <div id="file-list" style="margin-top: 12px; display: none;">
+                                    <p style="margin: 0 0 8px 0; font-size: 13px; font-weight: 600; color: #374151;">Selected files:</p>
+                                    <ul id="file-list-items" style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px;"></ul>
+                                </div>
                                 <p style="margin: 8px 0 0; font-size: 12px; color: #6b7280;">
                                     Accepted formats: PDF, AI, PSD, JPG, PNG, EPS, INDD. You can select multiple files. Please attach them in your email client when the email opens.
                                 </p>
@@ -321,36 +326,94 @@
     </div>
     <script src="assets/scripts.js"></script>
     <script>
+        // Display selected files
+        (function() {
+            var fileInput = document.getElementById('quote-design');
+            var fileList = document.getElementById('file-list');
+            var fileListItems = document.getElementById('file-list-items');
+            
+            if (fileInput && fileList && fileListItems) {
+                fileInput.addEventListener('change', function(e) {
+                    var files = e.target.files;
+                    fileListItems.innerHTML = '';
+                    
+                    if (files.length > 0) {
+                        fileList.style.display = 'block';
+                        for (var i = 0; i < files.length; i++) {
+                            var file = files[i];
+                            var fileSize = (file.size / 1024).toFixed(2); // Size in KB
+                            var listItem = document.createElement('li');
+                            listItem.style.cssText = 'padding: 10px 12px; background: #f3f4f6; border-radius: 8px; font-size: 13px; color: #374151; display: flex; align-items: center; justify-content: space-between;';
+                            
+                            var fileInfo = document.createElement('span');
+                            fileInfo.style.cssText = 'display: flex; align-items: center; gap: 8px;';
+                            
+                            var fileName = document.createElement('span');
+                            fileName.textContent = file.name;
+                            fileName.style.cssText = 'font-weight: 500;';
+                            
+                            var fileSizeSpan = document.createElement('span');
+                            fileSizeSpan.textContent = '(' + fileSize + ' KB)';
+                            fileSizeSpan.style.cssText = 'color: #6b7280; font-size: 12px;';
+                            
+                            fileInfo.appendChild(fileName);
+                            fileInfo.appendChild(fileSizeSpan);
+                            listItem.appendChild(fileInfo);
+                            fileListItems.appendChild(listItem);
+                        }
+                    } else {
+                        fileList.style.display = 'none';
+                    }
+                });
+            }
+        })();
+        
         function handleQuoteSubmit(event) {
             event.preventDefault();
-            var name = document.getElementById('quote-name').value;
-            var email = document.getElementById('quote-email').value;
-            var phone = document.getElementById('quote-phone').value;
-            var quantity = document.getElementById('quote-quantity').value;
-            var style = document.getElementById('quote-style').value;
-            var message = document.getElementById('quote-message').value;
-            var designFiles = document.getElementById('quote-design').files;
+            event.stopPropagation();
             
-            var subject = 'Branded Caps Quote Request - ' + quantity + ' caps (' + style + ')';
-            var body = 'Name: ' + name + '%0D%0A' +
-                      'Email: ' + email + '%0D%0A' +
-                      'Phone: ' + phone + '%0D%0A' +
-                      'Quantity: ' + quantity + ' caps%0D%0A' +
-                      'Cap Style: ' + style + '%0D%0A';
-            
-            if (message) {
-                body += 'Additional Details: ' + encodeURIComponent(message) + '%0D%0A';
-            }
-            
-            if (designFiles.length > 0) {
-                body += '%0D%0A--- Design Files ---%0D%0A';
-                for (var i = 0; i < designFiles.length; i++) {
-                    body += 'File ' + (i + 1) + ': ' + designFiles[i].name + '%0D%0A';
+            try {
+                var name = document.getElementById('quote-name').value;
+                var email = document.getElementById('quote-email').value;
+                var phone = document.getElementById('quote-phone').value;
+                var quantity = document.getElementById('quote-quantity').value;
+                var style = document.getElementById('quote-style').value;
+                var message = document.getElementById('quote-message').value;
+                var designFiles = document.getElementById('quote-design').files;
+                
+                var subject = 'Branded Caps Quote Request - ' + quantity + ' caps (' + style + ')';
+                var body = 'Name: ' + name + '%0D%0A' +
+                          'Email: ' + email + '%0D%0A' +
+                          'Phone: ' + phone + '%0D%0A' +
+                          'Quantity: ' + quantity + ' caps%0D%0A' +
+                          'Cap Style: ' + style + '%0D%0A';
+                
+                if (message) {
+                    body += 'Additional Details: ' + encodeURIComponent(message) + '%0D%0A';
                 }
-                body += '%0D%0ANote: Please attach the design files to this email before sending.%0D%0A';
+                
+                if (designFiles.length > 0) {
+                    body += '%0D%0A--- Design Files ---%0D%0A';
+                    for (var i = 0; i < designFiles.length; i++) {
+                        body += 'File ' + (i + 1) + ': ' + designFiles[i].name + '%0D%0A';
+                    }
+                    body += '%0D%0ANote: Please attach the design files to this email before sending.%0D%0A';
+                }
+                
+                // Use window.open instead of window.location.href to avoid redirects
+                var mailtoLink = 'mailto:sales@avitprint.com?subject=' + encodeURIComponent(subject) + '&body=' + body;
+                window.open(mailtoLink, '_self');
+                
+                // Show success message
+                setTimeout(function() {
+                    alert('Your email client should open shortly. If it doesn\'t, please email sales@avitprint.com directly with your quote request.');
+                }, 100);
+                
+            } catch (error) {
+                console.error('Error submitting form:', error);
+                alert('There was an error. Please email sales@avitprint.com directly with your quote request.');
             }
             
-            window.location.href = 'mailto:sales@avitprint.com?subject=' + encodeURIComponent(subject) + '&body=' + body;
             return false;
         }
     </script>

@@ -6,6 +6,11 @@
     <url>
         <loc>https://avitprint.com/</loc>
         <image:image>
+            <image:loc>https://avitprint.com/assets/images/logo/logo.png</image:loc>
+            <image:title>Avitprint Logo - Printing Services Lagos Nigeria</image:title>
+            <image:caption>Avitprint company logo - Professional printing services in Lagos, Nigeria</image:caption>
+        </image:image>
+        <image:image>
             <image:loc>https://avitprint.com/assets/images/products/business-card.jpg</image:loc>
             <image:title>Premium Business Cards Printing Lagos Nigeria</image:title>
             <image:caption>Custom printed business cards with matte and glossy finishes</image:caption>
