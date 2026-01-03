@@ -1,11 +1,16 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="assets/images/logo/favicon.png">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/logo/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/logo/favicon.png">
+    <link rel="shortcut icon" href="assets/images/logo/favicon.png">
+    <link rel="apple-touch-icon" href="assets/images/logo/favicon.png">
     
     <!-- Primary Meta Tags -->
     <title>All Products - Print Services Catalog | Avitprint Nigeria</title>
@@ -14,11 +19,11 @@
     <meta name="keywords" content="print products Nigeria, business cards, flyers, banners, packaging, promotional products, custom printing catalog, print services, branded merchandise, print store Nigeria">
     <meta name="author" content="Avitprint">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://avitprint.com/products.html">
+    <link rel="canonical" href="https://avitprint.com/products">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://avitprint.com/products.html">
+    <meta property="og:url" content="https://avitprint.com/products">
     <meta property="og:title" content="All Products - Print Services Catalog | Avitprint">
     <meta property="og:description" content="Browse our complete catalog of print products: business cards, flyers, banners, packaging, and branded merchandise. Premium quality, fast turnaround.">
     <meta property="og:image" content="https://avitprint.com/assets/images/og-image.jpg">
@@ -26,7 +31,7 @@
     
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://avitprint.com/products.html">
+    <meta name="twitter:url" content="https://avitprint.com/products">
     <meta name="twitter:title" content="All Products - Print Services Catalog | Avitprint">
     <meta name="twitter:description" content="Browse our complete catalog of print products: business cards, flyers, banners, packaging, and branded merchandise.">
     <meta name="twitter:image" content="https://avitprint.com/assets/images/og-image.jpg">
@@ -38,24 +43,24 @@
       "@type": "CollectionPage",
       "name": "Avitprint Products",
       "description": "Complete catalog of print products and services",
-      "url": "https://avitprint.com/products.html",
+      "url": "https://avitprint.com/products",
       "mainEntity": {
         "@type": "ItemList",
         "itemListElement": [
           {
             "@type": "Product",
             "name": "Business Cards",
-            "url": "https://avitprint.com/product-detail-business-cards.html"
+            "url": "https://avitprint.com/product-detail-business-cards"
           },
           {
             "@type": "Product",
             "name": "Flyers",
-            "url": "https://avitprint.com/product-detail-flyers.html"
+            "url": "https://avitprint.com/product-detail-flyers"
           },
           {
             "@type": "Product",
             "name": "Banners",
-            "url": "https://avitprint.com/product-detail-roll-up-banners.html"
+            "url": "https://avitprint.com/product-detail-roll-up-banners"
           }
         ]
       }
@@ -65,6 +70,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Preload Critical Assets -->
+    <link rel="preload" href="assets/styles.css" as="style">
+    <link rel="preload" href="assets/images/logo/logo.png" as="image">
+    
     <link rel="stylesheet" href="assets/styles.css">
 </head>
 
@@ -80,7 +90,7 @@
             </div>
             <div class="header-middle">
                 <div class="logo-row">
-                    <a href="index.html" class="logo"><img src="assets/images/logo/logo.png" alt="Avitprint" style="height: 40px;"></a>
+                    <a href="/" class="logo"><img src="assets/images/logo/logo.png" alt="Avitprint" style="height: 40px;" loading="eager"></a>
                     <div class="header-icons">
                         <a href="#">Orders</a>
                         <a href="#">Account</a>
@@ -114,7 +124,7 @@
                         <h3>Custom Door Hangers</h3>
                         <p class="product-description">Precision die-cut hangers with gloss or matte lamination.</p>
                         <p class="product-price">&#8358;38,000 <span>per 100</span></p>
-                        <a class="product-link" href="product-detail.html">View details</a>
+                        <a class="product-link" href="/products">View details</a>
                     </div>
                 </article>
 
@@ -124,7 +134,7 @@
                         <h3>Luxury Rigid Boxes</h3>
                         <p class="product-description">Magnetic closure boxes with custom inserts and foil.</p>
                         <p class="product-price">&#8358;275,000 <span>per 250</span></p>
-                        <a class="product-link" href="product-detail-premium.html">View details</a>
+                        <a class="product-link" href="/product-detail-premium">View details</a>
                     </div>
                 </article>
 
@@ -134,7 +144,7 @@
                         <h3>Event Badges &amp; Lanyards</h3>
                         <p class="product-description">Variable data badges with nylon lanyards and QR codes.</p>
                         <p class="product-price">&#8358;45,000 <span>per 100</span></p>
-                        <a class="product-link" href="product-detail-badges.html">View details</a>
+                        <a class="product-link" href="/product-detail-badges">View details</a>
                     </div>
                 </article>
 
