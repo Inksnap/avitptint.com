@@ -130,7 +130,7 @@
                 "Total: " + price + "\n\n" +
                 "Please send me the next steps.";
 
-            var whatsappUrl = 'https://wa.me/12894367868?text=' + encodeURIComponent(message);
+            var whatsappUrl = 'https://wa.me/2348138370852?text=' + encodeURIComponent(message);
             window.open(whatsappUrl, '_blank');
         });
     }
