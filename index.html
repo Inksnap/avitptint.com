@@ -1015,8 +1015,8 @@ header.main .wrap{min-width:0}
 .modal-visual{min-height:0;display:block;padding:24px 4px 24px 24px;background:transparent;color:var(--ink)}
 .modal-form{padding:24px 24px 24px 20px}
 /* Neat 4 picture gallery: one large main picture, 4 thumbnails in one row.
-   All four views come from the product's own real photo (full view, close
-   up, print detail and full photo crops), never a different product. */
+   All four views are different photos of the same printed product (full
+   view, print close-up, another angle, in use), never a different product. */
 .gallery{position:sticky;top:0}
 .gallery-main{position:relative;aspect-ratio:1/1;border-radius:16px;overflow:hidden;border:1px solid var(--border)}
 .gallery-main img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .3s ease}
@@ -1063,10 +1063,10 @@ header.main .wrap{min-width:0}
 }
 
 /* ===== ADVANCED GALLERY + STEPPED CONFIGURATOR v9 ===== */
-/* Four distinct views, all CSS crops of the product's own real photo:
-   Full view (whole photo), Close-up detail (tight crop top-left area),
-   Print finish close-up (deeper crop, different area + slight contrast),
-   In use (wider environmental crop, lower area, warmer tone). */
+/* Four distinct photos of the same printed product:
+   Full view (whole product), Print close-up (the print itself),
+   Another angle (same product, different angle),
+   In use (the printed product in everyday use). */
 .gallery-main{cursor:zoom-in;touch-action:none;user-select:none;-webkit-user-select:none;background:#111}
 .gallery-main.is-zoomed{cursor:grab}
 .gallery-main.is-zoomed:active{cursor:grabbing}
@@ -2862,7 +2862,7 @@ function cartBaseUnit(it){
 function priceText(p){ return p.quote ? "Price on quote" : (p.perOrder ? fmt2(p.price) + " per order" : fmt2(p.price)); }
 function fromText(p){ return p.quote ? "Price on quote" : (p.perOrder ? "From " + fmt2(p.price) + " per order" : "From " + fmt2(p.price)); }
 function isQuoteId(id){ var p=productById(id); return !!(p && p.quote); }
-function newChipHtml(p){ return p.isNew ? '<span class="newtag">NEW</span><span class="phototag">Photo coming soon</span>' : ""; }
+function newChipHtml(p){ return p.isNew ? '<span class="newtag">NEW</span>' + (p.noimg ? '<span class="phototag">Photo coming soon</span>' : "") : ""; }
 var BULK_TIERS=[{qty:100,disc:0.03},{qty:200,disc:0.05},{qty:500,disc:0.08},{qty:1000,disc:0.10}];
 function tierDiscount(qty){ if(qty>=1000) return 0.10; if(qty>=500) return 0.08; if(qty>=200) return 0.05; if(qty>=100) return 0.03; return 0; }
 function discountForQty(p, qty){ if(p && p.perOrder) return 0; return tierDiscount(qty); }
@@ -2979,30 +2979,34 @@ function openProduct(id){
   $("productModal").classList.add("show");
   var mb=document.querySelector(".modal-box"); if(mb) mb.scrollTop=0;
 }
-/* Neat 4 picture gallery for the product page. Every view uses the product's
-   own real photo only: main view, a close up crop, a print detail crop and
-   the full photo. No other product's picture is ever shown as this product. */
-/* Advanced gallery: 4 genuinely different views, every one a browser crop of
-   the product's OWN real AvitPrint photo (different scale, crop area and tone),
+/* Neat 4 picture gallery for the product page. Every view is a different photo
+   of the same printed product only: full view, print close-up, another angle
+   and in use. No other product's picture is ever shown as this product. */
+/* Advanced gallery: 4 genuinely different photos of the same printed product,
    so no different product is ever shown as this product and no photo is invented.
-   Full view = whole photo. Close-up detail = tight crop. Print finish close-up =
-   deeper crop on another area with contrast up. In use = wider lower crop. */
+   Full view = whole product. Print close-up = the print itself. Another angle =
+   same product from a different angle. In use = the printed product in use.
+   Files are <code>.jpg, <code>-2.jpg, <code>-3.jpg, <code>-4.jpg. A missing
+   detail photo falls back to the main photo. */
 var GAL_VIEWS=[
-  {cls:"gv-fullview", label:"Full view", note:"The whole product photo, exactly as listed.", base:1, origin:"50% 50%"},
-  {cls:"gv-closeup", label:"Close-up detail", note:"A tight crop of the same photo, so you can check edges and print sharpness.", base:1.85, origin:"30% 28%"},
-  {cls:"gv-finish", label:"Print finish close-up", note:"A deeper crop on a different part of the same photo, contrast lifted so the finish and colour density show.", base:2.5, origin:"68% 62%"},
-  {cls:"gv-inuse", label:"In use", note:"A wider crop of the lower part of the same photo, framed as the product looks in everyday use.", base:1.28, origin:"50% 82%"}
+  {cls:"gv-fullview", suf:"", label:"Full view", note:"The whole printed product, exactly as listed.", base:1, origin:"50% 50%"},
+  {cls:"gv-fullview", suf:"-2", label:"Print close-up", note:"A close look at the print itself, so you can check the edges and how sharp the print is.", base:1, origin:"50% 50%"},
+  {cls:"gv-fullview", suf:"-3", label:"Another angle", note:"The same printed product from a different angle.", base:1, origin:"50% 50%"},
+  {cls:"gv-fullview", suf:"-4", label:"In use", note:"The printed product in everyday use.", base:1, origin:"50% 50%"}
 ];
+/* Photo for one gallery view. Falls back to the product's main photo when a detail photo is missing (older products only have one photo). */
+function galViewSrc(p,i){ return imgUrl(p.id+(GAL_VIEWS[i].suf||"")); }
+function galFb(el){ var fb=el.getAttribute("data-fb"); if(!fb || el.dataset.fb){ el.remove(); } else { el.dataset.fb="1"; el.src=fb; } }
 var galIdx=0, galScale=1, galX=0, galY=0, galLastTouch=0;
 function galleryHtml(p){
   galIdx=0; galScale=1; galX=0; galY=0;
   var mainInner = p.noimg
     ? '<span class="gal-glyph">'+p.glyph+'</span>'
-    : '<img id="galMain" class="gal-img gv-fullview" src="'+imgUrl(p.id)+'" alt="'+p.name+' by AvitPrint, full view" title="'+p.name+' by AvitPrint, full view" draggable="false" onerror="this.remove()">';
+    : '<img id="galMain" class="gal-img gv-fullview" src="'+galViewSrc(p,0)+'" data-fb="'+imgUrl(p.id)+'" alt="'+p.name+' by AvitPrint, full view" title="'+p.name+' by AvitPrint, full view" draggable="false" onerror="galFb(this)">';
   var thumbs = GAL_VIEWS.map(function(v,i){
     var tInner = p.noimg
       ? '<span class="gal-glyph">'+p.glyph+'</span>'
-      : '<img class="'+v.cls+'" src="'+imgUrl(p.id)+'" alt="'+p.name+' by AvitPrint, '+v.label+'" title="'+p.name+' by AvitPrint, '+v.label+'" draggable="false" onerror="this.remove()">';
+      : '<img class="'+v.cls+'" src="'+galViewSrc(p,i)+'" data-fb="'+imgUrl(p.id)+'" alt="'+p.name+' by AvitPrint, '+v.label+'" title="'+p.name+' by AvitPrint, '+v.label+'" draggable="false" onerror="galFb(this)">';
     return '<button type="button" class="gthumb'+(i===0?" active":"")+'" data-gidx="'+i+'" aria-label="Show '+v.label.toLowerCase()+' of '+p.name+'"><span class="gthumb-img" style="background:'+p.color+'">'+tInner+'</span><span class="gthumb-lbl">'+v.label+'</span></button>';
   }).join("");
   return '<div class="gallery"><div class="gallery-main" id="galMainWrap" style="background:'+p.color+'"><div class="gal-stage" id="galStage">'+mainInner+'<div class="gal-fx" id="galFx"></div></div>'
@@ -3016,7 +3020,7 @@ function galleryHtml(p){
     + '<p class="gal-hint" id="galHint">Tap a thumbnail to switch view · Tap the photo to zoom · Pinch and drag on phone · Zoom button opens fullscreen</p>'
     + (p.noimg
       ? '<p class="gal-note"><span class="gal-newchip">NEW PRODUCT</span><br>This product is new and its real AvitPrint photo is coming soon, so the tile above shows it in our corporate colours with its icon. The 4 views switch between the tile views. Set your options below and we send a free digital proof with your actual design before print.</p></div>'
-      : '<p class="gal-note">All 4 views are different crops and zooms of this product\u2019s one real photo. Pick a Gloss, Matte, Spot UV or Foil finish below and this photo updates to show it.</p></div>');
+      : '<p class="gal-note">Four different photos of this printed product: the full view, a close look at the print, another angle, and the product in use.</p></div>');
 }
 function galApply(){
   var main=$("galMain"), wrap=$("galMainWrap"); if(!main||!wrap) return;
@@ -3032,7 +3036,7 @@ function galApply(){
 function galSetView(i){
   galIdx=(i+GAL_VIEWS.length)%GAL_VIEWS.length; galScale=1; galX=0; galY=0;
   var main=$("galMain");
-  if(main){ main.className="gal-img "+GAL_VIEWS[galIdx].cls; main.style.transform=""; main.style.transformOrigin=""; if(activeProduct) main.alt=activeProduct.name+" by AvitPrint, "+GAL_VIEWS[galIdx].label.toLowerCase(); }
+  if(main && activeProduct){ delete main.dataset.fb; main.src=galViewSrc(activeProduct,galIdx); main.className="gal-img "+GAL_VIEWS[galIdx].cls; main.style.transform=""; main.style.transformOrigin=""; main.alt=activeProduct.name+" by AvitPrint, "+GAL_VIEWS[galIdx].label.toLowerCase(); }
   document.querySelectorAll("[data-gidx]").forEach(function(x){ x.classList.toggle("active", parseInt(x.getAttribute("data-gidx"),10)===galIdx); });
   galApply();
 }
@@ -3104,12 +3108,13 @@ function lbApply(){
   var hint=document.querySelector(".lb-sub"); if(hint) hint.textContent=v.note+" Swipe or use the arrows to change view · Pinch or double tap to zoom · Drag to look around";
   document.querySelectorAll("[data-lbidx]").forEach(function(x){ x.classList.toggle("active", parseInt(x.getAttribute("data-lbidx"),10)===lbIdx); });
 }
-function lbSetView(i){ lbIdx=(i+GAL_VIEWS.length)%GAL_VIEWS.length; lbScale=1; lbX=0; lbY=0; var img=$("lbImg"); if(img){ img.style.transform=""; img.style.transformOrigin=""; } lbApply(); }
+function lbSetView(i){ lbIdx=(i+GAL_VIEWS.length)%GAL_VIEWS.length; lbScale=1; lbX=0; lbY=0; var img=$("lbImg"); if(img){ delete img.dataset.fb; if(activeProduct) img.src=galViewSrc(activeProduct,lbIdx); img.style.transform=""; img.style.transformOrigin=""; } lbApply(); }
 function openLightbox(startIdx){
   if(!activeProduct) return;
   lbIdx=startIdx||0; lbScale=1; lbX=0; lbY=0;
   var img=$("lbImg");
-  img.src=imgUrl(activeProduct.id); img.alt=activeProduct.name+" printing in Lagos, Nigeria, by AvitPrint"; img.title=activeProduct.name+" printing in Lagos, Nigeria by AvitPrint";
+  delete img.dataset.fb; img.setAttribute("data-fb", imgUrl(activeProduct.id)); img.onerror=function(){ galFb(img); };
+  img.src=galViewSrc(activeProduct,lbIdx); img.alt=activeProduct.name+" printing in Lagos, Nigeria, by AvitPrint"; img.title=activeProduct.name+" printing in Lagos, Nigeria by AvitPrint";
   $("lbTitle").textContent=activeProduct.name+" · Photos";
   $("lbThumbs").innerHTML=GAL_VIEWS.map(function(v,i){ return '<button type="button" class="lb-thumb'+(i===lbIdx?" active":"")+'" data-lbidx="'+i+'">'+v.label+'</button>'; }).join("");
   document.querySelectorAll("[data-lbidx]").forEach(function(b){ b.addEventListener("click", function(){ lbSetView(parseInt(b.getAttribute("data-lbidx"),10)); }); });
