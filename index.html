@@ -121,6 +121,17 @@
     <link rel="preload" href="assets/images/logo/logo.png" as="image">
     
     <link rel="stylesheet" href="assets/styles.css">
+    <style>
+        .shop-toolbar { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; padding: 0 20px; margin: 18px 0 12px; }
+        .shop-toolbar input[type="search"] { flex: 1 1 260px; padding: 12px 14px; border: 1px solid #e5e5ef; border-radius: 12px; font: inherit; }
+        .shop-sort-label { display: flex; gap: 8px; align-items: center; font-weight: 600; font-size: 14px; }
+        .shop-sort-label select { padding: 10px 12px; border: 1px solid #e5e5ef; border-radius: 12px; font: inherit; }
+        .filter-chips { display: flex; gap: 8px; flex-wrap: wrap; padding: 0 20px; margin: 0 0 12px; }
+        .filter-chip { border: 1px solid rgba(108, 92, 231, 0.3); background: rgba(108, 92, 231, 0.08); color: #6c5ce7; border-radius: 999px; padding: 8px 14px; font: inherit; font-size: 13px; font-weight: 600; cursor: pointer; }
+        .filter-chip.active { background: #6c5ce7; color: #fff; }
+        .shop-count { padding: 0 20px; margin: 0 0 16px; font-size: 13px; }
+        .shop-empty { padding: 0 20px; margin: 0 0 16px; }
+    </style>
 </head>
 <body class="printivo-home">
     <div class="printivo-wrapper">
@@ -167,7 +178,7 @@
                         and delivery so your team can stay focused on growth.</p>
                     <div class="hero-ctas">
                         <a class="btn btn-primary" href="#contact">Start a project</a>
-                        <a class="btn btn-outline" href="#categories">Browse Products</a>
+                        <a class="btn btn-outline" href="#products">Browse Products</a>
                     </div>
                     <ul class="hero-stats">
                         <li>
@@ -198,6 +209,252 @@
                 </div>
             </section>
 
+            <section class="products-section" id="products">
+                <div class="section-header">
+                    <h2>Popular products</h2>
+                    <a href="/products">See all products</a>
+                </div>
+                <div class="shop-toolbar" role="search">
+                    <input id="shop-search" type="search" placeholder="Search products, for example business cards" aria-label="Search products">
+                    <label class="shop-sort-label" for="shop-sort">Sort
+                        <select id="shop-sort">
+                            <option value="featured">Featured</option>
+                            <option value="name">Name A to Z</option>
+                            <option value="price-asc">Price: low to high</option>
+                            <option value="price-desc">Price: high to low</option>
+                        </select>
+                    </label>
+                </div>
+                <div class="filter-chips" role="group" aria-label="Filter products by category">
+                    <button type="button" class="filter-chip active" data-filter="all" aria-pressed="true">All</button>
+                    <button type="button" class="filter-chip" data-filter="marketing" aria-pressed="false">Marketing Essentials</button>
+                    <button type="button" class="filter-chip" data-filter="packaging" aria-pressed="false">Packaging &amp; Merch</button>
+                    <button type="button" class="filter-chip" data-filter="events" aria-pressed="false">Events &amp; Outdoors</button>
+                    <button type="button" class="filter-chip" data-filter="office" aria-pressed="false">Office &amp; Operations</button>
+                    <button type="button" class="filter-chip" data-filter="apparel" aria-pressed="false">Brand Apparel</button>
+                    <button type="button" class="filter-chip" data-filter="gifts" aria-pressed="false">Gifts &amp; Giveaways</button>
+                </div>
+                <p class="shop-count" id="shop-count" aria-live="polite">Showing 28 of 28 products</p>
+                <p class="shop-empty" id="shop-empty" hidden>No products match your search. Try a different word or category.</p>
+                <div class="product-grid">
+                    <a href="/product-detail-business-cards" class="product-card" data-category="marketing" data-price="6500" data-name="Business Cards">
+                        <div class="product-thumb">
+                            <img src="assets/images/products/business-card.jpg" alt="Premium business cards Lagos Nigeria with matte glossy finishes 400gsm cardstock" width="300" height="200" loading="lazy">
+                        </div>
+                        <h3>Business Cards</h3>
+                        <p class="product-desc">Matte or glossy. Premium stock, crisp colours.</p>
+                        <span class="product-price">From ₦6,500</span>
+                        <span class="product-link">View details →</span>
+                    </a>
+                    <a href="/product-detail-flyers" class="product-card" data-category="marketing" data-price="12000" data-name="Flyers">
+                        <div class="product-thumb">
+                            <img src="assets/images/products/flyer-printing-in-lagos.jpg" alt="Custom flyer printing services Lagos Nigeria A5 A4 full color 150gsm art paper" width="300" height="200" loading="lazy">
+                        </div>
+                        <h3>Flyers</h3>
+                        <p class="product-desc">A5/A4 handouts for launches and promos.</p>
+                        <span class="product-price">From ₦12,000</span>
+                        <span class="product-link">View details →</span>
+                    </a>
+                    <a href="/product-detail-stickers" class="product-card" data-category="packaging" data-price="5000" data-name="Stickers">
+                        <div class="product-thumb">
+                            <img src="assets/images/products/stickers.jpg" alt="Custom stickers printing die-cut waterproof vinyl stickers Lagos Nigeria" width="300" height="200" loading="lazy">
+                        </div>
+                        <h3>Stickers</h3>
+                        <p class="product-desc">Die-cut or sheets. Durable and waterproof.</p>
+                        <span class="product-price">From ₦5,000</span>
+                        <span class="product-link">View details →</span>
+                    </a>
+                    <a href="/product-detail-t-shirts" class="product-card" data-category="apparel" data-price="7500" data-name="T-Shirts">
+                        <div class="product-thumb">
+                            <img src="assets/images/products/tshirt-printing-in-lagos.jpeg" alt="Custom t-shirt printing Lagos Nigeria full color on cotton branded tees" width="300" height="200" loading="lazy">
+                        </div>
+                        <h3>T-Shirts</h3>
+                        <p class="product-desc">Full-colour prints on soft cotton tees.</p>
+                        <span class="product-price">From ₦7,500</span>
+                        <span class="product-link">View details →</span>
+                    </a>
+                    <a href="/product-detail-mugs" class="product-card" data-category="gifts" data-price="4500" data-name="Mugs">
+                        <div class="product-thumb">
+                            <img src="assets/images/products/mug-printing.jpg" alt="Custom mug printing dishwasher safe ceramic mugs Lagos Nigeria branded merchandise" width="300" height="200" loading="lazy">
+                        </div>
+                        <h3>Mugs</h3>
+                        <p class="product-desc">Dishwasher-safe ceramic mugs, vibrant print.</p>
+                        <span class="product-price">From ₦4,500</span>
+                        <span class="product-link">View details →</span>
+                    </a>
+                    <a href="/product-detail-roll-up-banners" class="product-card" data-category="events" data-price="28000" data-name="Roll-up Banners">
+                        <div class="product-thumb">
+                            <img src="assets/images/products/Roll-Up Banner.jpg" alt="Roll-up banners Lagos Nigeria with aluminum stand retractable tear-resistant print" width="300" height="200" loading="lazy">
+                        </div>
+                        <h3>Roll-up Banners</h3>
+                        <p class="product-desc">Aluminium stand, tear-resistant print.</p>
+                        <span class="product-price">From ₦28,000</span>
+                        <span class="product-link">View details →</span>
+                    </a>
+                    <a href="/product-detail-jotters" class="product-card" data-category="office" data-price="1500" data-name="A5 Jotters">
+                        <div class="product-thumb">
+                            <img src="assets/images/products/jotter-printing-in-lagos.jpg" alt="A5 jotters Lagos Nigeria soft cover spiral bound hard cover custom branded notebooks" width="300" height="200" loading="lazy">
+                        </div>
+                        <h3>A5 Jotters</h3>
+                        <p class="product-desc">Soft cover Spiral , hard cover options available.</p>
+                        <span class="product-price">From ₦1,500</span>
+                        <span class="product-link">View details →</span>
+                    </a>
+                    <a href="/product-detail-desk-calendars" class="product-card" data-category="office" data-price="3500" data-name="Desk Calendars">
+                        <div class="product-thumb">
+                            <img src="assets/images/products/table-calender.jpg" alt="A4 desk calendars Lagos Nigeria custom branded table calendars corporate gifts" width="300" height="200" loading="lazy">
+                        </div>
+                        <h3>Desk Calendars</h3>
+                        <p class="product-desc">A4 desk calendars with custom branding.</p>
+                        <span class="product-price">From ₦3,500</span>
+                        <span class="product-link">View details →</span>
+                    </a>
+                    <a href="/product-detail-brochures" class="product-card" data-category="marketing" data-price="1500" data-name="Brochures">
+                        <div class="product-thumb">
+                            <img src="assets/images/products/brochures.jpg" alt="Custom brochures printing Lagos Nigeria tri-fold bi-fold A4 glossy matte finishes" width="300" height="200" loading="lazy">
+                        </div>
+                        <h3>Brochures</h3>
+                        <p class="product-desc">Tri-fold, bi-fold, or custom layouts.</p>
+                        <span class="product-price">From ₦1,500</span>
+                        <span class="product-link">View details →</span>
+                    </a>
+                    <a href="/product-detail-letterheads" class="product-card" data-category="office" data-price="20000" data-name="Letterheads">
+                        <div class="product-thumb">
+                            <img src="assets/images/products/letterheads.jpg" alt="A4 letterheads printing Lagos Nigeria company branded stationery premium paper" width="300" height="200" loading="lazy">
+                        </div>
+                        <h3>Letterheads</h3>
+                        <p class="product-desc">A4 letterheads with company branding.</p>
+                        <span class="product-price">From ₦20,000</span>
+                        <span class="product-link">View details →</span>
+                    </a>
+                    <a href="/product-detail-premium-business-cards" class="product-card" data-category="marketing" data-price="20000" data-name="Premium Business Cards">
+                        <div class="product-thumb" style="background-image: url('assets/images/products/luxury-cards.jpg');" role="img" aria-label="Premium business cards with spot UV foil stamping"></div>
+                        <h3>Premium Business Cards</h3>
+                        <p class="product-desc">Spot UV, foil stamping, embossed finish.</p>
+                        <span class="product-price">From ₦20,000</span>
+                        <span class="product-link">View details →</span>
+                    </a>
+                    <a href="/product-detail-custom-pens" class="product-card" data-category="gifts" data-price="1500" data-name="Custom Pens">
+                        <div class="product-thumb" style="background-image: url('assets/images/products/pens.jpg');" role="img" aria-label="Custom pens with logo printing ballpoint"></div>
+                        <h3>Custom Pens</h3>
+                        <p class="product-desc">Ballpoint pens with your logo printed.</p>
+                        <span class="product-price">From ₦1,500</span>
+                        <span class="product-link">View details →</span>
+                    </a>
+                    <a href="/product-detail-promotional-bags" class="product-card" data-category="packaging" data-price="6800" data-name="Promotional Bags">
+                        <div class="product-thumb" style="background-image: url('assets/images/products/paper-bag-printing.jpg');" role="img" aria-label="Promotional bags tote bags jute bags custom printing"></div>
+                        <h3>Promotional Bags</h3>
+                        <p class="product-desc">Tote bags, jute bags with custom printing.</p>
+                        <span class="product-price">From ₦6,800</span>
+                        <span class="product-link">View details →</span>
+                    </a>
+                    <a href="/product-detail-polo-t-shirts" class="product-card" data-category="apparel" data-price="10000" data-name="Polo T-Shirts">
+                        <div class="product-thumb" style="background-image: url('assets/images/products/polo-printing-near-me.jpg');" role="img" aria-label="Polo t-shirts full color printing on cotton"></div>
+                        <h3>Polo T-Shirts</h3>
+                        <p class="product-desc">Full-colour prints on soft cotton tees.</p>
+                        <span class="product-price">From ₦10,000</span>
+                        <span class="product-link">View details →</span>
+                    </a>
+                    <a href="/product-detail-backdrops" class="product-card" data-category="events" data-price="250000" data-name="Backdrops">
+                        <div class="product-thumb" style="background-image: url('assets/images/products/backdrop-.jpg');" role="img" aria-label="Custom backdrops for events and promotions"></div>
+                        <h3>Backdrops</h3>
+                        <p class="product-desc">Cutomised Backdrops for events and promotions.</p>
+                        <span class="product-price">From ₦250,000</span>
+                        <span class="product-link">View details →</span>
+                    </a>
+                    <a href="/product-detail-nylon-bags" class="product-card" data-category="packaging" data-price="22000" data-name="Nylon Bags">
+                        <div class="product-thumb" style="background-image: url('assets/images/products/nylon-printing-near-me.jpg');" role="img" aria-label="Nylon bags durable LD bags spot color print"></div>
+                        <h3>Nylon Bags</h3>
+                        <p class="product-desc">Durable LD bags with spot colour print.</p>
+                        <span class="product-price">From ₦22,000</span>
+                        <span class="product-link">View details →</span>
+                    </a>
+                    <a href="/product-detail-wedding-invitations" class="product-card" data-category="events" data-price="2500" data-name="Wedding Invitations">
+                        <div class="product-thumb" style="background-image: url('assets/images/products/wedding-invitation-card.jpg');" role="img" aria-label="Wedding invitations elegant invites with RSVP cards"></div>
+                        <h3>Wedding Invitations</h3>
+                        <p class="product-desc">Elegant wedding invites with RSVP cards.</p>
+                        <span class="product-price">From ₦2,500</span>
+                        <span class="product-link">View details →</span>
+                    </a>
+                    <a href="/product-detail-courier-bags" class="product-card" data-category="packaging" data-price="15000" data-name="Courier Bags">
+                        <div class="product-thumb" style="background-image: url('assets/images/products/courier-bags.jpg');" role="img" aria-label="Courier bags marketing tamper proof poly mailers"></div>
+                        <h3>Courier Bags</h3>
+                        <p class="product-desc">Marketing courier bags, tamper proof poly mailers.</p>
+                        <span class="product-price">From ₦15,000</span>
+                        <span class="product-link">View details →</span>
+                    </a>
+                    <a href="/product-detail-menu-cards" class="product-card" data-category="marketing" data-price="15000" data-name="Menu Cards">
+                        <div class="product-thumb" style="background-image: url('assets/images/products/menu.jpg');" role="img" aria-label="Menu cards custom menu cards with lamination"></div>
+                        <h3>Menu Cards</h3>
+                        <p class="product-desc">Custom menu cards with lamination.</p>
+                        <span class="product-price">From ₦15,000</span>
+                        <span class="product-link">View details →</span>
+                    </a>
+                    <a href="/product-detail-vehicle-branding" class="product-card" data-category="events" data-price="5500" data-name="Vehicle Branding">
+                        <div class="product-thumb" style="background-image: url('assets/images/products/vehicle-branding.jpg');" role="img" aria-label="Vehicle branding full color print car wraps"></div>
+                        <h3>Vehicle Branding</h3>
+                        <p class="product-desc">Vehicle branding with full-colour print.</p>
+                        <span class="product-price">From ₦5,500</span>
+                        <span class="product-link">View details →</span>
+                    </a>
+                    <a href="/product-detail-wedding-banners" class="product-card" data-category="events" data-price="200000" data-name="Wedding Banners">
+                        <div class="product-thumb" style="background-image: url('assets/images/products/weddingRedcarpet\ design.jpg');" role="img" aria-label="Wedding banners premium full color print"></div>
+                        <h3>Wedding Banners</h3>
+                        <p class="product-desc">Premium wedding banners with full-colour print.</p>
+                        <span class="product-price">From ₦200,000</span>
+                        <span class="product-link">View details →</span>
+                    </a>
+                    <a href="/product-detail-branded-caps" class="product-card" data-category="apparel" data-price="6800" data-name="Branded Caps">
+                        <div class="product-thumb" style="background-image: url('assets/images/products/Branded-Cap.jpg');" role="img" aria-label="Branded caps embroidered caps various colors"></div>
+                        <h3>Branded Caps</h3>
+                        <p class="product-desc">Embroidered caps, various colors available.</p>
+                        <span class="product-price">From ₦6,800</span>
+                        <span class="product-link">View details →</span>
+                    </a>
+                    <a href="/product-detail-custom-keychains" class="product-card" data-category="gifts" data-price="2500" data-name="Custom Keychains">
+                        <div class="product-thumb" style="background-image: url('assets/images/products/Keychain.jpg');" role="img" aria-label="Custom keychains acrylic metal rubber options"></div>
+                        <h3>Custom Keychains</h3>
+                        <p class="product-desc">Acrylic, metal, and rubber keychain options.</p>
+                        <span class="product-price">From ₦2,500</span>
+                        <span class="product-link">View details →</span>
+                    </a>
+                    <a href="/product-detail-presentation-folders" class="product-card" data-category="office" data-price="9200" data-name="Presentation Folders">
+                        <div class="product-thumb" style="background-image: url('assets/images/products/Presentation-Folder.jpg');" role="img" aria-label="Presentation folders professional with business card slots"></div>
+                        <h3>Presentation Folders</h3>
+                        <p class="product-desc">Professional folders with business card slots.</p>
+                        <span class="product-price">From ₦9,200</span>
+                        <span class="product-link">View details →</span>
+                    </a>
+                    <a href="/product-detail-employee-id-cards" class="product-card" data-category="office" data-price="4800" data-name="Employee ID Cards">
+                        <div class="product-thumb" style="background-image: url('assets/images/products/id-card-printing.jpg');" role="img" aria-label="Employee ID cards PVC cards with lanyards"></div>
+                        <h3>Employee ID Cards</h3>
+                        <p class="product-desc">PVC ID cards with lanyards included.</p>
+                        <span class="product-price">From ₦4,800</span>
+                        <span class="product-link">View details →</span>
+                    </a>
+                    <a href="/product-detail-burial-program" class="product-card" data-category="events" data-price="5200" data-name="Burial Program">
+                        <div class="product-thumb" style="background-image: url('assets/images/products/burial-program-near-me.jpg ');" role="img" aria-label="Burial program full color printing"></div>
+                        <h3> Burial Program </h3>
+                        <p class="product-desc">Full Color burial program.</p>
+                        <span class="product-price">From ₦5,200</span>
+                        <span class="product-link">View details →</span>
+                    </a>
+                    <a href="/product-detail-invitation-cards" class="product-card" data-category="events" data-price="12500" data-name="Invitations Cards">
+                        <div class="product-thumb" style="background-image: url('assets/images/products/invitation-card.jpg');" role="img" aria-label="Invitation cards elegant invites with RSVP"></div>
+                        <h3>Invitations Cards</h3>
+                        <p class="product-desc">Elegant invites with RSVP cards.</p>
+                        <span class="product-price">From ₦12,500</span>
+                        <span class="product-link">View details →</span>
+                    </a>
+                    <a href="/product-detail-custom-lanyards" class="product-card" data-category="gifts" data-price="3800" data-name="Custom Lanyards">
+                        <div class="product-thumb" style="background-image: url('assets/images/products/lanyard-printing.jpg');" role="img" aria-label="Custom lanyards printed with safety clips"></div>
+                        <h3>Custom Lanyards</h3>
+                        <p class="product-desc">Printed lanyards with safety clips included.</p>
+                        <span class="product-price">From ₦3,800</span>
+                        <span class="product-link">View details →</span>
+                    </a>
+                </div>
+            </section>
             <section class="category-section" id="categories">
                 <div class="section-header">
                     <h2>Shop by goal</h2>
@@ -234,230 +491,6 @@
                         <p>Delight clients with curated gift boxes, mugs, notebooks and keepsakes made in Nigeria.</p>
                         <a href="#contact">Curate gifts &rarr;</a>
                     </article>
-                </div>
-            </section>
-            <section class="products-section" id="products">
-                <div class="section-header">
-                    <h2>Popular products</h2>
-                    <a href="/products">See all products</a>
-                </div>
-                <div class="product-grid">
-                    <a href="/product-detail-business-cards" class="product-card">
-                        <div class="product-thumb">
-                            <img src="assets/images/products/business-card.jpg" alt="Premium business cards Lagos Nigeria with matte glossy finishes 400gsm cardstock" width="300" height="200" loading="lazy">
-                        </div>
-                        <h3>Business Cards</h3>
-                        <p class="product-desc">Matte or glossy. Premium stock, crisp colours.</p>
-                        <span class="product-price">From ₦6,500</span>
-                        <span class="product-link">View details →</span>
-                    </a>
-                    <a href="/product-detail-flyers" class="product-card">
-                        <div class="product-thumb">
-                            <img src="assets/images/products/flyer-printing-in-lagos.jpg" alt="Custom flyer printing services Lagos Nigeria A5 A4 full color 150gsm art paper" width="300" height="200" loading="lazy">
-                        </div>
-                        <h3>Flyers</h3>
-                        <p class="product-desc">A5/A4 handouts for launches and promos.</p>
-                        <span class="product-price">From ₦12,000</span>
-                        <span class="product-link">View details →</span>
-                    </a>
-                    <a href="/product-detail-stickers" class="product-card">
-                        <div class="product-thumb">
-                            <img src="assets/images/products/stickers.jpg" alt="Custom stickers printing die-cut waterproof vinyl stickers Lagos Nigeria" width="300" height="200" loading="lazy">
-                        </div>
-                        <h3>Stickers</h3>
-                        <p class="product-desc">Die-cut or sheets. Durable and waterproof.</p>
-                        <span class="product-price">From ₦5,000</span>
-                        <span class="product-link">View details →</span>
-                    </a>
-                    <a href="/product-detail-t-shirts" class="product-card">
-                        <div class="product-thumb">
-                            <img src="assets/images/products/tshirt-printing-in-lagos.jpeg" alt="Custom t-shirt printing Lagos Nigeria full color on cotton branded tees" width="300" height="200" loading="lazy">
-                        </div>
-                        <h3>T-Shirts</h3>
-                        <p class="product-desc">Full-colour prints on soft cotton tees.</p>
-                        <span class="product-price">From ₦7,500</span>
-                        <span class="product-link">View details →</span>
-                    </a>
-                    <a href="/product-detail-mugs" class="product-card">
-                        <div class="product-thumb">
-                            <img src="assets/images/products/mug-printing.jpg" alt="Custom mug printing dishwasher safe ceramic mugs Lagos Nigeria branded merchandise" width="300" height="200" loading="lazy">
-                        </div>
-                        <h3>Mugs</h3>
-                        <p class="product-desc">Dishwasher-safe ceramic mugs, vibrant print.</p>
-                        <span class="product-price">From ₦4,500</span>
-                        <span class="product-link">View details →</span>
-                    </a>
-                    <a href="/product-detail-roll-up-banners" class="product-card">
-                        <div class="product-thumb">
-                            <img src="assets/images/products/Roll-Up Banner.jpg" alt="Roll-up banners Lagos Nigeria with aluminum stand retractable tear-resistant print" width="300" height="200" loading="lazy">
-                        </div>
-                        <h3>Roll-up Banners</h3>
-                        <p class="product-desc">Aluminium stand, tear-resistant print.</p>
-                        <span class="product-price">From ₦28,000</span>
-                        <span class="product-link">View details →</span>
-                    </a>
-                    <a href="/product-detail-jotters" class="product-card">
-                        <div class="product-thumb">
-                            <img src="assets/images/products/jotter-printing-in-lagos.jpg" alt="A5 jotters Lagos Nigeria soft cover spiral bound hard cover custom branded notebooks" width="300" height="200" loading="lazy">
-                        </div>
-                        <h3>A5 Jotters</h3>
-                        <p class="product-desc">Soft cover Spiral , hard cover options available.</p>
-                        <span class="product-price">From ₦1,500</span>
-                        <span class="product-link">View details →</span>
-                    </a>
-                    <a href="/product-detail-desk-calendars" class="product-card">
-                        <div class="product-thumb">
-                            <img src="assets/images/products/table-calender.jpg" alt="A4 desk calendars Lagos Nigeria custom branded table calendars corporate gifts" width="300" height="200" loading="lazy">
-                        </div>
-                        <h3>Desk Calendars</h3>
-                        <p class="product-desc">A4 desk calendars with custom branding.</p>
-                        <span class="product-price">From ₦3,500</span>
-                        <span class="product-link">View details →</span>
-                    </a>
-                    <a href="/product-detail-brochures" class="product-card">
-                        <div class="product-thumb">
-                            <img src="assets/images/products/brochures.jpg" alt="Custom brochures printing Lagos Nigeria tri-fold bi-fold A4 glossy matte finishes" width="300" height="200" loading="lazy">
-                        </div>
-                        <h3>Brochures</h3>
-                        <p class="product-desc">Tri-fold, bi-fold, or custom layouts.</p>
-                        <span class="product-price">From ₦1,500</span>
-                        <span class="product-link">View details →</span>
-                    </a>
-                    <a href="/product-detail-letterheads" class="product-card">
-                        <div class="product-thumb">
-                            <img src="assets/images/products/letterheads.jpg" alt="A4 letterheads printing Lagos Nigeria company branded stationery premium paper" width="300" height="200" loading="lazy">
-                        </div>
-                        <h3>Letterheads</h3>
-                        <p class="product-desc">A4 letterheads with company branding.</p>
-                        <span class="product-price">From ₦20,000</span>
-                        <span class="product-link">View details →</span>
-                    </a>
-                    <a href="/product-detail-premium-business-cards" class="product-card">
-                        <div class="product-thumb" style="background-image: url('assets/images/products/luxury-cards.jpg');" role="img" aria-label="Premium business cards with spot UV foil stamping"></div>
-                        <h3>Premium Business Cards</h3>
-                        <p class="product-desc">Spot UV, foil stamping, embossed finish.</p>
-                        <span class="product-price">From ₦20,000</span>
-                        <span class="product-link">View details →</span>
-                    </a>
-                    <a href="/product-detail-custom-pens" class="product-card">
-                        <div class="product-thumb" style="background-image: url('assets/images/products/pens.jpg');" role="img" aria-label="Custom pens with logo printing ballpoint"></div>
-                        <h3>Custom Pens</h3>
-                        <p class="product-desc">Ballpoint pens with your logo printed.</p>
-                        <span class="product-price">From ₦1,500</span>
-                        <span class="product-link">View details →</span>
-                    </a>
-                    <a href="/product-detail-promotional-bags" class="product-card">
-                        <div class="product-thumb" style="background-image: url('assets/images/products/paper-bag-printing.jpg');" role="img" aria-label="Promotional bags tote bags jute bags custom printing"></div>
-                        <h3>Promotional Bags</h3>
-                        <p class="product-desc">Tote bags, jute bags with custom printing.</p>
-                        <span class="product-price">From ₦6,800</span>
-                        <span class="product-link">View details →</span>
-                    </a>
-                    <a href="/product-detail-polo-t-shirts" class="product-card">
-                        <div class="product-thumb" style="background-image: url('assets/images/products/polo-printing-near-me.jpg');" role="img" aria-label="Polo t-shirts full color printing on cotton"></div>
-                        <h3>Polo T-Shirts</h3>
-                        <p class="product-desc">Full-colour prints on soft cotton tees.</p>
-                        <span class="product-price">From ₦10,000</span>
-                        <span class="product-link">View details →</span>
-                    </a>
-                    <a href="/product-detail-backdrops" class="product-card">
-                        <div class="product-thumb" style="background-image: url('assets/images/products/backdrop-.jpg');" role="img" aria-label="Custom backdrops for events and promotions"></div>
-                        <h3>Backdrops</h3>
-                        <p class="product-desc">Cutomised Backdrops for events and promotions.</p>
-                        <span class="product-price">From ₦250,000</span>
-                        <span class="product-link">View details →</span>
-                    </a>
-                    <a href="/product-detail-nylon-bags" class="product-card">
-                        <div class="product-thumb" style="background-image: url('assets/images/products/nylon-printing-near-me.jpg');" role="img" aria-label="Nylon bags durable LD bags spot color print"></div>
-                        <h3>Nylon Bags</h3>
-                        <p class="product-desc">Durable LD bags with spot colour print.</p>
-                        <span class="product-price">From ₦22,000</span>
-                        <span class="product-link">View details →</span>
-                    </a>
-                    <a href="/product-detail-wedding-invitations" class="product-card">
-                        <div class="product-thumb" style="background-image: url('assets/images/products/wedding-invitation-card.jpg');" role="img" aria-label="Wedding invitations elegant invites with RSVP cards"></div>
-                        <h3>Wedding Invitations</h3>
-                        <p class="product-desc">Elegant wedding invites with RSVP cards.</p>
-                        <span class="product-price">From ₦2,500</span>
-                        <span class="product-link">View details →</span>
-                    </a>
-                    <a href="/product-detail-courier-bags" class="product-card">
-                        <div class="product-thumb" style="background-image: url('assets/images/products/courier-bags.jpg');" role="img" aria-label="Courier bags marketing tamper proof poly mailers"></div>
-                        <h3>Courier Bags</h3>
-                        <p class="product-desc">Marketing courier bags, tamper proof poly mailers.</p>
-                        <span class="product-price">From ₦15,000</span>
-                        <span class="product-link">View details →</span>
-                    </a>
-                    <a href="/product-detail-menu-cards" class="product-card">
-                        <div class="product-thumb" style="background-image: url('assets/images/products/menu.jpg');" role="img" aria-label="Menu cards custom menu cards with lamination"></div>
-                        <h3>Menu Cards</h3>
-                        <p class="product-desc">Custom menu cards with lamination.</p>
-                        <span class="product-price">From ₦15,000</span>
-                        <span class="product-link">View details →</span>
-                    </a>
-                    <a href="/product-detail-vehicle-branding" class="product-card">
-                        <div class="product-thumb" style="background-image: url('assets/images/products/vehicle-branding.jpg');" role="img" aria-label="Vehicle branding full color print car wraps"></div>
-                        <h3>Vehicle Branding</h3>
-                        <p class="product-desc">Vehicle branding with full-colour print.</p>
-                        <span class="product-price">From ₦5,500</span>
-                        <span class="product-link">View details →</span>
-                    </a>
-                    <a href="/product-detail-wedding-banners" class="product-card">
-                        <div class="product-thumb" style="background-image: url('assets/images/products/weddingRedcarpet\ design.jpg');" role="img" aria-label="Wedding banners premium full color print"></div>
-                        <h3>Wedding Banners</h3>
-                        <p class="product-desc">Premium wedding banners with full-colour print.</p>
-                        <span class="product-price">From ₦200,000</span>
-                        <span class="product-link">View details →</span>
-                    </a>
-                    <a href="/product-detail-branded-caps" class="product-card">
-                        <div class="product-thumb" style="background-image: url('assets/images/products/Branded-Cap.jpg');" role="img" aria-label="Branded caps embroidered caps various colors"></div>
-                        <h3>Branded Caps</h3>
-                        <p class="product-desc">Embroidered caps, various colors available.</p>
-                        <span class="product-price">From ₦6,800</span>
-                        <span class="product-link">View details →</span>
-                    </a>
-                    <a href="/product-detail-custom-keychains" class="product-card">
-                        <div class="product-thumb" style="background-image: url('assets/images/products/Keychain.jpg');" role="img" aria-label="Custom keychains acrylic metal rubber options"></div>
-                        <h3>Custom Keychains</h3>
-                        <p class="product-desc">Acrylic, metal, and rubber keychain options.</p>
-                        <span class="product-price">From ₦2,500</span>
-                        <span class="product-link">View details →</span>
-                    </a>
-                    <a href="/product-detail-presentation-folders" class="product-card">
-                        <div class="product-thumb" style="background-image: url('assets/images/products/Presentation-Folder.jpg');" role="img" aria-label="Presentation folders professional with business card slots"></div>
-                        <h3>Presentation Folders</h3>
-                        <p class="product-desc">Professional folders with business card slots.</p>
-                        <span class="product-price">From ₦9,200</span>
-                        <span class="product-link">View details →</span>
-                    </a>
-                    <a href="/product-detail-employee-id-cards" class="product-card">
-                        <div class="product-thumb" style="background-image: url('assets/images/products/id-card-printing.jpg');" role="img" aria-label="Employee ID cards PVC cards with lanyards"></div>
-                        <h3>Employee ID Cards</h3>
-                        <p class="product-desc">PVC ID cards with lanyards included.</p>
-                        <span class="product-price">From ₦4,800</span>
-                        <span class="product-link">View details →</span>
-                    </a>
-                    <a href="/product-detail-burial-program" class="product-card">
-                        <div class="product-thumb" style="background-image: url('assets/images/products/burial-program-near-me.jpg ');" role="img" aria-label="Burial program full color printing"></div>
-                        <h3> Burial Program </h3>
-                        <p class="product-desc">Full Color burial program.</p>
-                        <span class="product-price">From ₦5,200</span>
-                        <span class="product-link">View details →</span>
-                    </a>
-                    <a href="/product-detail-invitation-cards" class="product-card">
-                        <div class="product-thumb" style="background-image: url('assets/images/products/invitation-card.jpg');" role="img" aria-label="Invitation cards elegant invites with RSVP"></div>
-                        <h3>Invitations Cards</h3>
-                        <p class="product-desc">Elegant invites with RSVP cards.</p>
-                        <span class="product-price">From ₦12,500</span>
-                        <span class="product-link">View details →</span>
-                    </a>
-                    <a href="/product-detail-custom-lanyards" class="product-card">
-                        <div class="product-thumb" style="background-image: url('assets/images/products/lanyard-printing.jpg');" role="img" aria-label="Custom lanyards printed with safety clips"></div>
-                        <h3>Custom Lanyards</h3>
-                        <p class="product-desc">Printed lanyards with safety clips included.</p>
-                        <span class="product-price">From ₦3,800</span>
-                        <span class="product-link">View details →</span>
-                    </a>
                 </div>
             </section>
             <section class="value-section" id="value">
@@ -640,6 +673,45 @@
         </a>
     </div>
     <script src="assets/scripts.js"></script>
+    <script>
+    (function () {
+        var search = document.getElementById('shop-search');
+        var sort = document.getElementById('shop-sort');
+        var count = document.getElementById('shop-count');
+        var empty = document.getElementById('shop-empty');
+        var grid = document.querySelector('.product-grid');
+        if (!search || !sort || !grid || !count) return;
+        var cards = Array.prototype.slice.call(grid.querySelectorAll('.product-card'));
+        var chips = Array.prototype.slice.call(document.querySelectorAll('.filter-chip'));
+        var activeFilter = 'all';
+        function apply() {
+            var q = search.value.trim().toLowerCase();
+            var shown = [];
+            cards.forEach(function (card) {
+                var text = card.textContent.toLowerCase();
+                var ok = (activeFilter === 'all' || card.getAttribute('data-category') === activeFilter) && (!q || text.indexOf(q) !== -1);
+                card.style.display = ok ? '' : 'none';
+                if (ok) shown.push(card);
+            });
+            var mode = sort.value;
+            if (mode === 'name') shown.sort(function (a, b) { return a.getAttribute('data-name').localeCompare(b.getAttribute('data-name')); });
+            if (mode === 'price-asc') shown.sort(function (a, b) { return Number(a.getAttribute('data-price')) - Number(b.getAttribute('data-price')); });
+            if (mode === 'price-desc') shown.sort(function (a, b) { return Number(b.getAttribute('data-price')) - Number(a.getAttribute('data-price')); });
+            shown.forEach(function (card) { grid.appendChild(card); });
+            count.textContent = 'Showing ' + shown.length + ' of 28 products';
+            if (empty) empty.hidden = shown.length !== 0;
+        }
+        search.addEventListener('input', apply);
+        sort.addEventListener('change', apply);
+        chips.forEach(function (chip) {
+            chip.addEventListener('click', function () {
+                activeFilter = chip.getAttribute('data-filter');
+                chips.forEach(function (c) { c.classList.toggle('active', c === chip); c.setAttribute('aria-pressed', c === chip ? 'true' : 'false'); });
+                apply();
+            });
+        });
+    })();
+    </script>
 </body>
 
 </html>
