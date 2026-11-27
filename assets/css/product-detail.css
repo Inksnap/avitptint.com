@@ -1,0 +1,57 @@
+
+/* Product detail page styles. Colours, fonts and buttons come from avitprint.css
+   (the homepage stylesheet), so a detail page matches the shop exactly. */
+.pd-crumb{font-size:13px;color:var(--muted);padding:16px 0 0}
+.pd-crumb a{color:var(--brand);font-weight:600}
+.pd-crumb b{color:var(--ink)}
+.pd-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:28px;padding:18px 0 8px}
+@media(max-width:860px){.pd-grid{grid-template-columns:1fr;gap:18px}}
+.pd-gal-main{border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;background:var(--surface2,#f6f6f7)}
+.pd-gal-main img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover}
+.pd-thumbs{display:flex;gap:10px;margin-top:10px;flex-wrap:wrap}
+.pd-thumbs button{border:2px solid var(--border);border-radius:12px;padding:0;overflow:hidden;cursor:pointer;background:var(--surface);width:84px;height:64px}
+.pd-thumbs button.on{border-color:var(--brand)}
+.pd-thumbs img{display:block;width:100%;height:100%;object-fit:cover}
+.pd-view-label{font-size:12.5px;color:var(--muted);margin-top:8px}
+.pd-cat{font-size:12.5px;font-weight:700;color:var(--brand);text-transform:uppercase;letter-spacing:.04em}
+.pd-title{font-size:32px;line-height:1.1;margin:6px 0 8px}
+@media(max-width:700px){.pd-title{font-size:26px}}
+.pd-desc{color:var(--muted);font-size:15.5px;margin:0 0 14px}
+.pd-badges{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.pd-badge{display:inline-block;background:var(--chip);border:1px solid var(--border);border-radius:999px;padding:4px 12px;font-size:12.5px;font-weight:700}
+.pd-badge.hot{background:#fff1e8;color:var(--brand-dark);border-color:#ffd9c2}
+.pd-price{border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;background:var(--surface);margin:4px 0 14px}
+.pd-from{font-size:28px;font-weight:800;display:block;line-height:1.1}
+.pd-per{font-size:14px;color:var(--muted)}
+.pd-min{font-size:13.5px;color:var(--muted);margin:8px 0 0}
+.pd-opt{margin:0 0 14px}
+.pd-opt h3{font-size:13.5px;margin:0 0 8px}
+.pd-pills{display:flex;gap:8px;flex-wrap:wrap}
+.pd-pill{border:1.5px solid var(--border);background:var(--surface);border-radius:999px;padding:8px 14px;font-size:13.5px;font-weight:600;cursor:pointer;min-height:40px}
+.pd-pill.on{border-color:var(--brand);background:#fff1e8;color:var(--brand-dark)}
+body:not(.light) .pd-pill.on{background:#2a1a10;color:#ffb199}
+.pd-qtyrow{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:0 0 12px}
+.pd-qty{display:flex;align-items:center;border:1.5px solid var(--border);border-radius:12px;overflow:hidden}
+.pd-qty button{width:44px;min-height:44px;border:0;background:var(--surface);font-size:20px;cursor:pointer;color:var(--ink)}
+.pd-qty input{width:90px;border:0;text-align:center;font-weight:700;background:var(--surface);color:var(--ink);min-height:44px}
+.pd-total{border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;background:var(--surface);margin:0 0 14px}
+.pd-total .tot-row{display:flex;justify-content:space-between;gap:10px;padding:3px 0;font-size:14.5px}
+.pd-total .tot-row.grand{font-weight:800;font-size:17px;border-top:1px solid var(--border);margin-top:8px;padding-top:10px}
+.pd-total .save{color:var(--success);font-weight:700}
+.pd-delivery{width:100%;border:1.5px solid var(--border);border-radius:12px;background:var(--surface);color:var(--ink);padding:10px 12px;margin-top:10px}
+.pd-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:0 0 10px}
+.pd-actions .btn{width:100%;justify-content:center}
+.pd-wa{width:100%;justify-content:center}
+.pd-trust{font-size:13.5px;color:var(--muted);margin:12px 0 0;padding-left:18px}
+.pd-trust li{margin-bottom:4px}
+.pd-sec{padding:22px 0;border-top:1px solid var(--border)}
+.pd-sec h2{font-size:22px;margin-bottom:10px}
+.pd-sec p{color:var(--muted);max-width:760px}
+.pd-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px}
+@media(max-width:700px){.pd-steps{grid-template-columns:1fr}}
+.pd-step{border:1px solid var(--border);border-radius:var(--radius);padding:14px;background:var(--surface)}
+.pd-step b{display:block;margin-bottom:4px}
+.pd-step span{font-size:13.5px;color:var(--muted)}
+.pd-related{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+@media(max-width:860px){.pd-related{grid-template-columns:repeat(2,1fr)}}
+.pd-note{font-size:13px;color:var(--muted);margin-top:10px}
