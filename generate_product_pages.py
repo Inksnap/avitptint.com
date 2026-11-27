@@ -532,7 +532,7 @@ template = '''<!DOCTYPE html>
                 <div>
                     <strong>Talk to us</strong>
                     <a href="mailto:support@avitprint.com">support@avitprint.com</a>
-                    <a href="tel:+12894367868">+1 289 436 7868</a>
+                    <a href="tel:+2348138370852">+234 813 837 0852</a>
                     <span>Lagos, Nigeria</span>
                 </div>
                 <div>
