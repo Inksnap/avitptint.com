@@ -3891,7 +3891,7 @@ function iconFor(label, choice){
   if(c==="2 colours"||c==="2 colors") return svgW('<circle cx="8" cy="12" r="4.5"/><circle cx="16" cy="12" r="4.5"/>');
   if(c.indexOf("black and white")>-1) return dot2("#17171a","#f4f4f5");
   if(c.indexOf("premium")>-1) return svgW(badge);
-  if(c.indexOf("classic")>-1||c.indexOf("standard")>-1) return svgW(tag);
+  if(c.indexOf("classic")>-1||c.indexOf("standard")>-1) return svgW(rect(5,5,14,14,1));
   /* Last resort: a labelled tile, never the generic tag. Two letters from
      the choice name, so the tile is at least different per choice. */
   var words=choice.replace(/[^A-Za-z0-9 ]/g," ").split(" ").filter(function(w){ return w.length>0; });
