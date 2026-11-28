@@ -1519,9 +1519,10 @@ footer p{font-size:12.5px}
 .vcards{gap:6px}
 .vcard{padding:7px 22px 7px 8px;min-height:48px;font-size:12px;gap:8px;border-radius:8px}
 .vcard.active::after{top:4px;right:7px;font-size:11px}
-.opt-tile{width:44px;height:44px;border-radius:9px}
+.opt-tile{width:56px;height:56px;border-radius:9px}
 .opt-tile svg{width:30px;height:30px}
-.pill .opt-tile{width:32px;height:32px;border-radius:7px;margin-right:6px}
+.opt-tile img{width:100%;height:100%;object-fit:cover;display:block}
+.pill .opt-tile{width:40px;height:40px;border-radius:7px;margin-right:6px}
 .pill .opt-tile svg{width:22px;height:22px}
 .swatches{gap:8px}
 .swatch{font-size:10.5px;min-height:44px;gap:3px;max-width:56px}
@@ -3196,6 +3197,7 @@ function isSizeGroup(label){ var l=(label||"").toLowerCase(); return l.indexOf("
 function isThickGroup(label, choice){ var l=(label||"").toLowerCase(); return l.indexOf("stock")>-1||l.indexOf("paper")>-1||l.indexOf("thickness")>-1||(choice||"").toLowerCase().indexOf("gsm")>-1; }
 function specThumbHtml(group, choice){
   var p=activeProduct; var fk=finishKind(choice);
+  var mf=optMockFile(group.label, choice); if(mf && !isColourGroup(group)) return '<img class="spec-mock" src="assets/images/options/'+mf+'" alt="" loading="lazy" onerror="this.remove()">';
   if(isSizeGroup(group.label)){ var d=parseDims(choice); var r=d.w/d.h; var w=r>=1?40:Math.max(14,40*r), h=r>=1?Math.max(14,40/r):40; return '<span class="mini-rect" style="width:'+Math.round(w)+'px;height:'+Math.round(h)+'px"></span>'; }
   if(isThickGroup(group.label, choice)){ var n=layerCount(choice); var s=""; for(var i=0;i<n;i++) s+='<i style="width:38px"></i>'; return '<span class="mini-layers">'+s+'</span>'; }
   if(fk && !p.noimg) return '<img src="'+imgUrl(p.id)+'" alt="'+p.name+' printing in Lagos, Nigeria, by AvitPrint" title="'+p.name+' printing in Lagos, Nigeria by AvitPrint" onerror="this.remove()"><span class="pfx fx-'+fk+'"></span>';
@@ -3205,6 +3207,7 @@ function specThumbHtml(group, choice){
 }
 function specPreviewHtml(group, choice){
   var p=activeProduct; var fk=finishKind(choice);
+  var mf2=optMockFile(group.label, choice); if(mf2 && !isColourGroup(group)) return '<img class="pimg" src="assets/images/options/'+mf2+'" alt="'+esc(choice)+' mockup" loading="lazy" onerror="this.remove()">';
   if(isSizeGroup(group.label)){
     var d=parseDims(choice); var r=d.w/d.h; var W,H; if(r>=1){ W=230; H=Math.max(70,230/r); } else { H=200; W=Math.max(70,200*r); }
     return '<div class="size-stage"><div class="size-rect" style="width:'+Math.round(W)+'px;height:'+Math.round(H)+'px"></div>'+HAND_SVG+'<div class="size-ruler"></div></div>';
@@ -3311,7 +3314,95 @@ function colourVisual(choice){
   if(hex) return '<span class="dotc" style="background:'+hex+'"></span>';
   return '<span class="dotc dotc-icon">'+svgW('<path d="M12 3.5s6 6.6 6 11a6 6 0 0 1-12 0c0-4.4 6-11 6-11z"/>')+'</span>';
 }
-function optTile(label, choice){ return '<span class="opt-tile" aria-hidden="true">'+iconFor(label, choice)+'</span>'; }
+
+/* Real mockup pictures for configurator step options (PR: option-mockup-pictures).
+   Each option that has a real mockup photo in assets/images/options/ shows that
+   photo instead of the SVG diagram. Colours keep their colour swatch, and any
+   option with no mockup yet keeps the SVG icon as fallback, never a red
+   placeholder. If a mockup image fails to load, onerror falls back to the
+   SVG icon for that option. */
+var OPTMOCK = {
+"gloss lamination":"gloss-lamination.jpg","gloss":"gloss-finish.jpg",
+"matte lamination":"matte-lamination.jpg","matte":"matte-finish.jpg",
+"no lamination":"no-lamination.jpg","spot uv":"spot-uv.jpg",
+"foil print":"foil-print.jpg","foil":"foil-print.jpg","foil detail":"foil-print.jpg",
+"embossed seal":"emboss-finish.jpg",
+"square corners":"square-corners.jpg","rounded corners":"rounded-corners.jpg",
+"tri-fold":"tri-fold.jpg","bi-fold":"bi-fold.jpg","z-fold":"z-fold.jpg","gate fold":"gate-fold.jpg",
+"perfect bound":"perfect-bound.jpg","saddle stitched":"saddle-stitched.jpg",
+"spiral bound":"spiral-bound.jpg","wire-o binding":"wire-o-binding.jpg",
+"booklet":"saddle-stitched.jpg","staple with hanger":"saddle-stitched.jpg",
+"hard cover":"hard-cover.jpg","soft cover":"soft-cover.jpg",
+"die-cut to shape":"shape-die-cut.jpg","round":"shape-round.jpg",
+"square":"shape-square.jpg","rectangle":"shape-rectangle.jpg",
+"front only":"print-front-only.jpg","one side":"print-front-only.jpg",
+"both sides":"print-both-sides.jpg","front and back":"print-both-sides.jpg",
+"a0":"size-a0.jpg","a1":"size-a1.jpg","a2":"size-a2.jpg","a3":"size-a3.jpg",
+"a4":"size-a4.jpg","a5":"size-a5.jpg","a6":"size-a6.jpg",
+"a5 tent":"size-a5.jpg","a6 tent":"size-a6.jpg","a5 folded":"size-a5.jpg","a6 folded":"size-a6.jpg",
+"a5 block":"size-a5.jpg","a6 block":"size-a6.jpg",
+"standard 85 x 55mm":"size-business-card-standard.jpg",
+"square 55 x 55mm":"size-business-card-square.jpg","slim 85 x 40mm":"size-business-card-slim.jpg",
+"small":"size-small.jpg","medium":"size-medium.jpg","large":"size-large.jpg","x-large":"size-x-large.jpg",
+"big":"size-large.jpg","adult":"size-large.jpg","kids":"size-small.jpg",
+"single bottle":"size-small.jpg","double bottle":"size-medium.jpg",
+"dl":"size-a6.jpg","dl 210 x 99mm":"size-a6.jpg",
+"5 x 7 inch":"size-a6.jpg","6 x 8 inch":"size-a5.jpg","6 x 9 inch":"size-a5.jpg",
+"24 x 36 inch":"size-a1.jpg","50 x 150mm":"size-a6.jpg","55 x 180mm":"size-a6.jpg",
+"s":"size-small.jpg","m":"size-medium.jpg","l":"size-large.jpg","xl":"size-large.jpg","xxl":"size-x-large.jpg",
+"kraft":"paper-kraft.jpg","acrylic card":"paper-acrylic.jpg","acrylic invite":"paper-acrylic.jpg",
+"premium textured":"paper-premium-textured.jpg"
+};
+function optMockFile(label, choice){
+  var L=(label||"").toLowerCase(), c=(choice||"").toLowerCase().trim();
+  if(L.indexOf("colour")>-1||L.indexOf("color")>-1) return null;
+  if(OPTMOCK[c]) return OPTMOCK[c];
+  var gsm=c.match(/(\d+)\s*gsm/);
+  if(gsm){
+    var n=parseInt(gsm[1],10);
+    if(n<=80) return "paper-80gsm.jpg";
+    if(n<=100) return "paper-100gsm.jpg";
+    if(n<=150) return "paper-150gsm-gloss.jpg";
+    if(n<=200) return "paper-200gsm.jpg";
+    if(n<=250) return "paper-250gsm.jpg";
+    if(n<=300) return "paper-300gsm-matte.jpg";
+    if(n<=350) return "paper-350gsm.jpg";
+    if(n<=400) return "paper-400gsm.jpg";
+    return "paper-600gsm.jpg";
+  }
+  if(c.indexOf("gsm")>-1) return "paper-300gsm-matte.jpg";
+  if(L.indexOf("stock")>-1||L.indexOf("paper")>-1){
+    if(c.indexOf("kraft")>-1) return "paper-kraft.jpg";
+    if(c.indexOf("acrylic")>-1) return "paper-acrylic.jpg";
+    if(c.indexOf("textured")>-1) return "paper-premium-textured.jpg";
+    if(c.indexOf("board")>-1) return "paper-400gsm.jpg";
+    return "paper-300gsm-matte.jpg";
+  }
+  if(L.indexOf("size")>-1||L.indexOf("dimension")>-1){
+    if(c.indexOf("custom")>-1) return null;
+    if(c.indexOf("x-large")===0) return "size-x-large.jpg";
+    if(c.indexOf("small")===0) return "size-small.jpg";
+    if(c.indexOf("medium")===0) return "size-medium.jpg";
+    if(c.indexOf("large")===0) return "size-large.jpg";
+    var d=parseDims(choice);
+    if(d && d.w && d.h){
+      var area=d.w*d.h/1000000;
+      if(area>=0.75) return "size-a0.jpg";
+      if(area>=0.375) return "size-a1.jpg";
+      if(area>=0.1875) return "size-a2.jpg";
+      if(area>=0.093) return "size-a3.jpg";
+      if(area>=0.047) return "size-a4.jpg";
+      if(area>=0.023) return "size-a5.jpg";
+      return "size-a6.jpg";
+    }
+    var mm=c.match(/(\d+)\s*x\s*(\d+)\s*cm/);
+    if(mm){ var mx=Math.max(parseInt(mm[1],10),parseInt(mm[2],10)); if(mx<=32) return "size-small.jpg"; if(mx<=38) return "size-medium.jpg"; return "size-large.jpg"; }
+    return null;
+  }
+  return null;
+}
+function optMockFallback(img){ var s=img.parentNode; if(!s) return; var l=s.getAttribute('data-label')||'', ch=s.getAttribute('data-choice')||''; s.classList.remove('opt-tile-mock'); s.innerHTML=iconFor(l, ch); }
+function optTile(label, choice){ var f=optMockFile(label, choice); if(f){ return '<span class="opt-tile opt-tile-mock" data-label="'+esc(label)+'" data-choice="'+esc(choice)+'" aria-hidden="true"><img src="assets/images/options/'+f+'" alt="" loading="lazy" onerror="optMockFallback(this)"></span>'; } return '<span class="opt-tile" aria-hidden="true">'+iconFor(label, choice)+'</span>'; }
 function iconFor(label, choice){
   var L=(label||"").toLowerCase(), c=(choice||"").toLowerCase();
   function rect(x,y,w,h,r){ return '<rect x="'+x+'" y="'+y+'" width="'+w+'" height="'+h+'" rx="'+(r||0)+'"/>'; }
